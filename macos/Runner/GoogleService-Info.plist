@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>747068734693-rkoguvs536dkn5fprojbeakh60qoe1jd.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.747068734693-rkoguvs536dkn5fprojbeakh60qoe1jd</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB0e8r2CEkBadXUcsdXM3xlPXiT9gXdvns</string>
+	<key>GCM_SENDER_ID</key>
+	<string>747068734693</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.decorRide.RunnerTests</string>
+	<key>PROJECT_ID</key>
+	<string>decor-ride</string>
+	<key>STORAGE_BUCKET</key>
+	<string>decor-ride.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:747068734693:ios:f064db069a084774db280c</string>
+</dict>
+</plist>

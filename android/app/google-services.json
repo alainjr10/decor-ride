@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "747068734693",
+    "project_id": "decor-ride",
+    "storage_bucket": "decor-ride.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:747068734693:android:3289b68014c4615cdb280c",
+        "android_client_info": {
+          "package_name": "com.example.decor_ride"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "747068734693-ugt5hk6bs6ap3b63g4o3qvsq771g7ca6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGNg3Ze25oU5iHnQbkAxdYh0hnRJjMaoI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "747068734693-ugt5hk6bs6ap3b63g4o3qvsq771g7ca6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

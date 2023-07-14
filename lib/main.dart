@@ -1,9 +1,14 @@
+import 'package:decor_ride/firebase_options.dart';
 import 'package:decor_ride/homescreen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(MainApp());
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(const MainApp());
 }
 
 class MainApp extends StatelessWidget {

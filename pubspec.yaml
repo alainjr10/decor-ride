@@ -15,10 +15,24 @@ dependencies:
       url: https://github.com/tonyhart7/arcore_flutter_plugin_updated.git
   vector_math: ^2.1.4
 
+  #NAVIGATION AND STATE MANAGEMENT
+  go_router: ^9.0.3
+  flutter_riverpod: ^2.3.6
+
+  #FIREBASE
+  firebase_core: ^2.15.0
+  cloud_firestore: ^4.8.3
+  firebase_auth: ^4.7.0
+
+  #OFFLINE DB
+  isar: ^3.1.0+1
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
+  build_runner: ^2.4.6
 
 flutter:
   uses-material-design: true
