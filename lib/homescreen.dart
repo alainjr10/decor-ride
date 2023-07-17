@@ -1,9 +1,11 @@
+import 'package:decor_ride/app/providers/app_theme_provider.dart';
 import 'package:decor_ride/screens/augmented_faces.dart';
 import 'package:decor_ride/screens/augmented_images.dart';
 import 'package:decor_ride/screens/image_object.dart';
 import 'package:decor_ride/screens/matri_3d.dart';
 import 'package:decor_ride/screens/multiple_augmented_images.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'screens/hello_world.dart';
 import 'screens/custom_object.dart';
@@ -13,9 +15,10 @@ import 'screens/assets_object.dart';
 import 'screens/auto_detect_plane.dart';
 import 'screens/remote_object.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends ConsumerWidget {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    var isDarkMode = ref.watch(appThemeProvider);
     return Scaffold(
       appBar: AppBar(
         title: const Text('ArCore Demo'),
@@ -112,6 +115,27 @@ class HomeScreen extends StatelessWidget {
                   builder: (context) => AugmentedFacesScreen()));
             },
             title: Text("Augmented Faces"),
+          ),
+          ListTile(
+            leading: Icon(isDarkMode ? Icons.brightness_3 : Icons.sunny),
+            title: Text(
+              isDarkMode ? "Dark mode" : "Light mode",
+              style: Theme.of(context).textTheme.bodyLarge,
+            ),
+            trailing: Consumer(
+              builder: (context, ref, child) {
+                return Transform.scale(
+                  scale: 1.0,
+                  child: Switch(
+                    // activeColor: Colors.orange,
+                    onChanged: (value) {
+                      ref.read(appThemeProvider.notifier).state = value;
+                    },
+                    value: isDarkMode,
+                  ),
+                );
+              },
+            ),
           ),
         ],
       ),

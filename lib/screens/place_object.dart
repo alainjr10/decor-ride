@@ -25,6 +25,7 @@ class _PlaceObjectScreenState extends State<PlaceObjectScreen> {
           ArCoreView(
             onArCoreViewCreated: _onArCoreViewCreated,
             enableTapRecognizer: true,
+            enableUpdateListener: true,
           ),
           Positioned(
             bottom: 20.0,
@@ -76,7 +77,7 @@ class _PlaceObjectScreenState extends State<PlaceObjectScreen> {
     arCoreController = controller;
     arCoreController?.onNodeTap = (name) => onTapHandler(name);
     arCoreController?.onPlaneTap = _handleOnPlaneTap;
-    // arCoreController?.onPlaneDetected = _handleOnPlaneDetected;
+    arCoreController?.onPlaneDetected = _handleOnPlaneDetected;
   }
 
   Future _addSphere(ArCoreHitTestResult hit) async {
@@ -124,7 +125,7 @@ class _PlaceObjectScreenState extends State<PlaceObjectScreen> {
     if (node != null) {
       arCoreController?.removeNode(nodeName: node!.name);
     }
-    // _addSphere(plane);
+    _addSphereOnPlane(plane);
   }
 
   Future _addSphereOnPlane(ArCorePlane plane) async {

@@ -45,6 +45,7 @@ flutter:
   uses-material-design: true
 
   assets:
+    - assets/furniture_assets/
     - assets/
     - assets/AndroidRobot.gif
     - assets/ArcticFox.gif
