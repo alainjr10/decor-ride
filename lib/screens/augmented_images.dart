@@ -13,15 +13,13 @@ class _AugmentedPageState extends State<AugmentedPage> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('AugmentedPage'),
-        ),
-        body: ArCoreView(
-          onArCoreViewCreated: _onArCoreViewCreated,
-          type: ArCoreViewType.AUGMENTEDIMAGES,
-        ),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('AugmentedPage'),
+      ),
+      body: ArCoreView(
+        onArCoreViewCreated: _onArCoreViewCreated,
+        type: ArCoreViewType.AUGMENTEDIMAGES,
       ),
     );
   }
@@ -29,9 +27,9 @@ class _AugmentedPageState extends State<AugmentedPage> {
   void _onArCoreViewCreated(ArCoreController controller) async {
     arCoreController = controller;
     arCoreController?.onTrackingImage = _handleOnTrackingImage;
-    //loadSingleImage();
-    //OR
-    loadImagesDatabase();
+    loadSingleImage();
+    // //OR
+    // loadImagesDatabase();
   }
 
   loadSingleImage() async {

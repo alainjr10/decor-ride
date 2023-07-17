@@ -4,6 +4,7 @@ import 'package:decor_ride/screens/image_object.dart';
 import 'package:decor_ride/screens/matri_3d.dart';
 import 'package:decor_ride/screens/multiple_augmented_images.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'screens/hello_world.dart';
 import 'screens/custom_object.dart';
 import 'screens/runtime_materials.dart';
@@ -27,6 +28,13 @@ class HomeScreen extends StatelessWidget {
                   .push(MaterialPageRoute(builder: (context) => HelloWorld()));
             },
             title: Text("Hello World"),
+          ),
+          ListTile(
+            onTap: () {
+              // context.push('/place_object');
+              context.go('/home/place_object');
+            },
+            title: Text("Place Object"),
           ),
           ListTile(
             onTap: () {
