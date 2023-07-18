@@ -26,7 +26,7 @@ class _PlaceObjectScreenState extends State<PlaceObjectScreen> {
           ArCoreView(
             onArCoreViewCreated: _onArCoreViewCreated,
             enableTapRecognizer: true,
-            enableUpdateListener: true,
+            // enableUpdateListener: true,
           ),
           Positioned(
             bottom: 20.0,
@@ -37,6 +37,7 @@ class _PlaceObjectScreenState extends State<PlaceObjectScreen> {
               children: [
                 IconButton(
                   onPressed: () {
+                    arCoreController!.dispose();
                     context.push('/product_categories_screen');
                   },
                   icon: const Icon(
@@ -80,7 +81,7 @@ class _PlaceObjectScreenState extends State<PlaceObjectScreen> {
     arCoreController = controller;
     arCoreController?.onNodeTap = (name) => onTapHandler(name);
     arCoreController?.onPlaneTap = _handleOnPlaneTap;
-    arCoreController?.onPlaneDetected = _handleOnPlaneDetected;
+    // arCoreController?.onPlaneDetected = _handleOnPlaneDetected;
   }
 
   Future _addSphere(ArCoreHitTestResult hit) async {

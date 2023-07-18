@@ -40,8 +40,11 @@ class ThemeColor {
         elevation: 0,
       ),
       colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue).copyWith(
+        primary: const Color(0xFF05B495),
         background: isDarkMode ? const Color(0xFF202320) : Colors.white,
         brightness: isDarkMode ? Brightness.dark : Brightness.light,
+        onPrimary:
+            isDarkMode ? const Color(0xFFF9FBF8) : const Color(0xFF202320),
       ),
     );
   }
