@@ -5,6 +5,32 @@ class ProductCategoriesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(
+            Icons.arrow_back,
+            // color: Colors.black,
+          ),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
+        actions: [
+          IconButton(
+            icon: const Icon(
+              Icons.search,
+              // color: Colors.black,
+            ),
+            onPressed: () {},
+          ),
+          IconButton(
+            icon: const Icon(
+              Icons.shopping_cart,
+              // color: Colors.black,
+            ),
+            onPressed: () {},
+          ),
+        ],
+      ),
+    );
   }
 }

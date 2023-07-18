@@ -1,4 +1,5 @@
 import 'package:decor_ride/homescreen.dart';
+import 'package:decor_ride/presentation/screens/product_listing/product_categories_screen.dart';
 import 'package:decor_ride/screens/place_object.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -73,10 +74,10 @@ final router = GoRouter(
         ),
       ],
     ),
-    // GoRoute(
-    //   path: '/place_object',
-    //   builder: (context, state) => const PlaceObjectScreen(),
-    // ),
+    GoRoute(
+      path: '/product_categories_screen',
+      builder: (context, state) => const ProductCategoriesScreen(),
+    ),
   ],
 );
 

@@ -1,6 +1,7 @@
 import 'package:arcore_flutter_plugin/arcore_flutter_plugin.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:go_router/go_router.dart';
 import 'package:vector_math/vector_math_64.dart' as vector;
 
 class PlaceObjectScreen extends StatefulWidget {
@@ -35,7 +36,9 @@ class _PlaceObjectScreenState extends State<PlaceObjectScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.push('/product_categories_screen');
+                  },
                   icon: const Icon(
                     Icons.shopping_bag_outlined,
                     color: Colors.white,
