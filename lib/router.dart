@@ -1,4 +1,5 @@
 import 'package:decor_ride/homescreen.dart';
+import 'package:decor_ride/presentation/screens/product_listing/category_products_screen.dart';
 import 'package:decor_ride/presentation/screens/product_listing/product_categories_screen.dart';
 import 'package:decor_ride/screens/place_object.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -12,7 +13,7 @@ final GlobalKey<NavigatorState> _shellNavigatorKey =
 final _auth = FirebaseAuth.instance;
 
 final router = GoRouter(
-  initialLocation: '/home',
+  initialLocation: '/',
   // redirect: (context, state) {
   //   if (_auth.currentUser == null) {
   //     return '/login';
@@ -65,7 +66,7 @@ final router = GoRouter(
     //   builder: (context, state) => const SignUp(),
     // ),
     GoRoute(
-      path: '/home',
+      path: '/',
       builder: (context, state) => HomeScreen(),
       routes: [
         GoRoute(
@@ -77,6 +78,13 @@ final router = GoRouter(
     GoRoute(
       path: '/product_categories_screen',
       builder: (context, state) => const ProductCategoriesScreen(),
+    ),
+    GoRoute(
+      path: '/category_products_screen/:categoryTag',
+      name: 'category_products_screen',
+      builder: (context, state) => CategoryProductsScreen(
+        categoryTag: state.pathParameters['categoryTag']!,
+      ),
     ),
   ],
 );

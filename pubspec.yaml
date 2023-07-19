@@ -33,7 +33,10 @@ dependencies:
   #Camera
   camera_android_camerax: ^0.5.0+9
   camera: ^0.10.5+2
+
+  #Utils
   freezed_annotation: ^2.4.1
+  flutter_screenutil: ^5.8.4
 
 
 dev_dependencies:

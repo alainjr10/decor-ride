@@ -2,13 +2,15 @@ import 'package:decor_ride/app/theme_extension.dart';
 import 'package:decor_ride/domain/providers/product_categories_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 class ProductCategoriesScreen extends ConsumerWidget {
   const ProductCategoriesScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final productCategoriesProvider = ref.watch(apiProvider);
+    final productCategoriesProvider = ref.watch(allCategoriesProvider);
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -44,12 +46,11 @@ class ProductCategoriesScreen extends ConsumerWidget {
           ),
         ],
       ),
-
       body: RefreshIndicator(
         onRefresh: () {
           // ref.invalidate(apiProvider);
           // ref.read(apiProvider);
-          return ref.refresh(apiProvider.future);
+          return ref.refresh(allCategoriesProvider.future);
         },
         child: productCategoriesProvider.when(
           loading: () {
@@ -63,28 +64,54 @@ class ProductCategoriesScreen extends ConsumerWidget {
             );
           },
           data: (data) {
-            return GridView.builder(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2),
-              itemCount: data.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(data[index].categoryName),
-                );
-              },
+            return Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
+              child: GridView.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 32.0,
+                  mainAxisSpacing: 32.0,
+                  childAspectRatio: 0.8,
+                ),
+                itemCount: data.length,
+                itemBuilder: (context, index) {
+                  return InkWell(
+                    onTap: () {
+                      context.pushNamed('category_products_screen',
+                          pathParameters: {
+                            'categoryTag': data[index]
+                                .categoryName
+                                .toLowerCase()
+                                .trim()
+                                .replaceAll(" ", "_"),
+                          });
+                      // context.push('/category_products_screen', extra: );
+                    },
+                    child: Column(
+                      children: [
+                        Image.asset(
+                          data[index].categoryImage,
+                          fit: BoxFit.fill,
+                          height: 170.0,
+                          width: size.width,
+                        ),
+                        const SizedBox(
+                          height: 16.0,
+                        ),
+                        Text(
+                          data[index].categoryName,
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ),
             );
-            // ListView.builder(
-            //   itemCount: data.length,
-            //   itemBuilder: (context, index) {
-            //     return ListTile(
-            //       title: Text(data[index].categoryName),
-            //     );
-            //   },
-            // );
           },
         ),
       ),
-      //  Container(),
     );
   }
 }

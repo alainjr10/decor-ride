@@ -35,7 +35,7 @@ class HomeScreen extends ConsumerWidget {
           ListTile(
             onTap: () {
               // context.push('/place_object');
-              context.go('/home/place_object');
+              context.go('/place_object');
             },
             title: Text("Place Object"),
           ),

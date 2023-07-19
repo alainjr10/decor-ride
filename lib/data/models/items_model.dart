@@ -34,6 +34,8 @@ class ProductModel {
   final double discountPrice;
   final int numberOfReviews;
   final String productTag;
+  bool bestSeller;
+  final String productCategoryTag;
 
   ProductModel({
     required this.productName,
@@ -44,6 +46,8 @@ class ProductModel {
     required this.discountPrice,
     required this.numberOfReviews,
     required this.productTag,
+    this.bestSeller = true,
+    required this.productCategoryTag,
   });
 
   // copywith
@@ -56,6 +60,8 @@ class ProductModel {
     double? discountPrice,
     int? numberOfReviews,
     String? productTag,
+    String? productCategoryTag,
+    bool? bestSeller,
   }) {
     return ProductModel(
       productName: productName ?? this.productName,
@@ -66,6 +72,8 @@ class ProductModel {
       discountPrice: discountPrice ?? this.discountPrice,
       numberOfReviews: numberOfReviews ?? this.numberOfReviews,
       productTag: productTag ?? this.productTag,
+      bestSeller: bestSeller ?? this.bestSeller,
+      productCategoryTag: productCategoryTag ?? this.productCategoryTag,
     );
   }
 }

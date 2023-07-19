@@ -5,6 +5,7 @@ import 'package:decor_ride/router.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,15 +20,32 @@ class MainApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return MaterialApp.router(
-      title: 'ARCore Flutter Plugin Example',
-      routerConfig: router,
-      theme: ThemeColor.themeData(ref.watch(appThemeProvider), context),
-      // theme: ThemeData(
-      //   useMaterial3: true,
-      //   primarySwatch: Colors.blue,
-      // ),
-      debugShowCheckedModeBanner: false,
+    return ScreenUtilInit(
+      designSize: const Size(360, 800),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return MaterialApp.router(
+          title: 'ARCore Flutter Plugin Example',
+          routerConfig: router,
+          theme: ThemeColor.themeData(ref.watch(appThemeProvider), context),
+          // theme: ThemeData(
+          //   useMaterial3: true,
+          //   primarySwatch: Colors.blue,
+          // ),
+          debugShowCheckedModeBanner: false,
+        );
+      },
     );
+    //  MaterialApp.router(
+    //   title: 'ARCore Flutter Plugin Example',
+    //   routerConfig: router,
+    //   theme: ThemeColor.themeData(ref.watch(appThemeProvider), context),
+    //   // theme: ThemeData(
+    //   //   useMaterial3: true,
+    //   //   primarySwatch: Colors.blue,
+    //   // ),
+    //   debugShowCheckedModeBanner: false,
+    // );
   }
 }
