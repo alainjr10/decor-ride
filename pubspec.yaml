@@ -17,6 +17,7 @@ dependencies:
   #   git:
   #     url: https://github.com/alainjr10/ar_flutter_plugin.git
   vector_math: ^2.1.4
+  model_viewer_plus: ^1.6.1
 
   #NAVIGATION AND STATE MANAGEMENT
   go_router: ^9.0.3
@@ -51,6 +52,7 @@ flutter:
 
   assets:
     - assets/furniture_assets/
+    - assets/3d_models/
     - assets/
     - assets/AndroidRobot.gif
     - assets/ArcticFox.gif

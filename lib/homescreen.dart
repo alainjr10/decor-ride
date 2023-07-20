@@ -3,6 +3,7 @@ import 'package:decor_ride/screens/augmented_faces.dart';
 import 'package:decor_ride/screens/augmented_images.dart';
 import 'package:decor_ride/screens/image_object.dart';
 import 'package:decor_ride/screens/matri_3d.dart';
+import 'package:decor_ride/screens/model_viewer.dart';
 import 'package:decor_ride/screens/multiple_augmented_images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -38,6 +39,13 @@ class HomeScreen extends ConsumerWidget {
               context.go('/place_object');
             },
             title: Text("Place Object"),
+          ),
+          ListTile(
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const ModelViewerScreen()));
+            },
+            title: Text("Model Viewer Plus"),
           ),
           ListTile(
             onTap: () {

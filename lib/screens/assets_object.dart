@@ -45,11 +45,11 @@ class _AssetsObjectState extends State<AssetsObject> {
   }
 
   void _addToucano(ArCoreHitTestResult plane) {
-    if (objectSelected != null) {
+    if (objectSelected != null || objectSelected == null) {
       //"https://github.com/KhronosGroup/glTF-Sample-Models/raw/master/2.0/Duck/glTF/Duck.gltf"
       final toucanoNode = ArCoreReferenceNode(
           name: objectSelected,
-          object3DFileName: objectSelected,
+          object3DFileName: 'assets/3d_models/ToyCar.glb',
           position: plane.pose.translation,
           rotation: plane.pose.rotation);
 
@@ -114,9 +114,12 @@ class _ListObjectSelectionState extends State<ListObjectSelection> {
   ];
 
   List<String> objectsFileName = [
-    'toucan.sfb',
-    'andy.sfb',
-    'artic_fox.sfb',
+    // 'toucan.sfb',
+    // 'andy.sfb',
+    // 'artic_fox.sfb',
+    'assets/3d_models/ToyCar.glb',
+    'assets/3d_models/couchbluepprrint_2.glb',
+    'assets/3d_models/ToyCar.glb',
   ];
 
   String? selected;
