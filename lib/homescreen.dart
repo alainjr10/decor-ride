@@ -1,7 +1,9 @@
 import 'package:decor_ride/app/providers/app_theme_provider.dart';
+import 'package:decor_ride/presentation/screens/ar_flutter_plugin/objects_on_plane.dart';
 import 'package:decor_ride/screens/augmented_faces.dart';
 import 'package:decor_ride/screens/augmented_images.dart';
 import 'package:decor_ride/screens/image_object.dart';
+import 'package:decor_ride/screens/local_and_web_view.dart';
 import 'package:decor_ride/screens/matri_3d.dart';
 import 'package:decor_ride/screens/model_viewer.dart';
 import 'package:decor_ride/screens/multiple_augmented_images.dart';
@@ -46,6 +48,20 @@ class HomeScreen extends ConsumerWidget {
                   builder: (context) => const ModelViewerScreen()));
             },
             title: Text("Model Viewer Plus"),
+          ),
+          ListTile(
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const LocalAndWebObjectsView()));
+            },
+            title: Text("AR Flutter Plugin"),
+          ),
+          ListTile(
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => ObjectGesturesWidget()));
+            },
+            title: Text("AR Flutter Plugin - Objects On Plane"),
           ),
           ListTile(
             onTap: () {
