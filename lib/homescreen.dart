@@ -1,4 +1,5 @@
 import 'package:decor_ride/app/providers/app_theme_provider.dart';
+import 'package:decor_ride/presentation/screens/ar_flutter_plugin/ar_main_view.dart';
 import 'package:decor_ride/presentation/screens/ar_flutter_plugin/objects_on_plane.dart';
 import 'package:decor_ride/screens/augmented_faces.dart';
 import 'package:decor_ride/screens/augmented_images.dart';
@@ -41,6 +42,13 @@ class HomeScreen extends ConsumerWidget {
               context.go('/place_object');
             },
             title: Text("Place Object"),
+          ),
+          ListTile(
+            onTap: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => ARMainView()));
+            },
+            title: Text("AR Main View"),
           ),
           ListTile(
             onTap: () {

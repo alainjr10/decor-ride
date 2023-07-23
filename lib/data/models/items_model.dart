@@ -28,6 +28,7 @@ class ProductCategoryModel {
 class ProductModel {
   final String productName;
   final String productImage;
+  final String? productModelUrl;
   final double rating;
   final String productOwner;
   final double price;
@@ -40,6 +41,7 @@ class ProductModel {
   ProductModel({
     required this.productName,
     required this.productImage,
+    required this.productModelUrl,
     required this.rating,
     required this.productOwner,
     required this.price,
@@ -54,6 +56,7 @@ class ProductModel {
   ProductModel copyWith({
     String? productName,
     String? productImage,
+    String? productModelUrl,
     double? rating,
     String? productOwner,
     double? price,
@@ -66,6 +69,7 @@ class ProductModel {
     return ProductModel(
       productName: productName ?? this.productName,
       productImage: productImage ?? this.productImage,
+      productModelUrl: productModelUrl ?? this.productModelUrl,
       rating: rating ?? this.rating,
       productOwner: productOwner ?? this.productOwner,
       price: price ?? this.price,

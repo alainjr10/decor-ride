@@ -12,7 +12,6 @@ import 'package:ar_flutter_plugin/models/ar_node.dart';
 import 'package:ar_flutter_plugin/models/ar_hittest_result.dart';
 import 'package:flutter/services.dart';
 import 'package:vector_math/vector_math_64.dart';
-import 'dart:math';
 
 class ObjectGesturesWidget extends StatefulWidget {
   ObjectGesturesWidget({Key? key}) : super(key: key);
@@ -101,31 +100,28 @@ class _ObjectGesturesWidgetState extends State<ObjectGesturesWidget> {
       List<ARHitTestResult> hitTestResults) async {
     var singleHitTestResult = hitTestResults.firstWhere(
         (hitTestResult) => hitTestResult.type == ARHitTestResultType.plane);
-    if (singleHitTestResult != null) {
-      var newAnchor =
-          ARPlaneAnchor(transformation: singleHitTestResult.worldTransform);
-      bool? didAddAnchor = await this.arAnchorManager!.addAnchor(newAnchor);
-      if (didAddAnchor!) {
-        this.anchors.add(newAnchor);
-        // Add note to anchor
-        var newNode = ARNode(
-            type: NodeType.webGLB,
-            uri:
-                "https://firebasestorage.googleapis.com/v0/b/decor-ride.appspot.com/o/vintage_wooden_chair_lowpoly.glb?alt=media&token=e69acf11-cf08-47b6-8973-df49e0722a10",
-            scale: Vector3(1.0, 1.0, 1.0),
-            position: Vector3(0.0, 0.0, 0.0),
-            rotation: Vector4(1.0, 0.0, 0.0, 0.0));
-        bool? didAddNodeToAnchor = await this
-            .arObjectManager!
-            .addNode(newNode, planeAnchor: newAnchor);
-        if (didAddNodeToAnchor!) {
-          this.nodes.add(newNode);
-        } else {
-          this.arSessionManager!.onError("Adding Node to Anchor failed");
-        }
+    var newAnchor =
+        ARPlaneAnchor(transformation: singleHitTestResult.worldTransform);
+    bool? didAddAnchor = await this.arAnchorManager!.addAnchor(newAnchor);
+    if (didAddAnchor!) {
+      this.anchors.add(newAnchor);
+      // Add note to anchor
+      var newNode = ARNode(
+          type: NodeType.webGLB,
+          uri:
+              "https://firebasestorage.googleapis.com/v0/b/decor-ride.appspot.com/o/vintage_wooden_chair_lowpoly.glb?alt=media&token=e69acf11-cf08-47b6-8973-df49e0722a10",
+          scale: Vector3(1.0, 1.0, 1.0),
+          position: Vector3(0.0, 0.0, 0.0),
+          rotation: Vector4(1.0, 0.0, 0.0, 0.0));
+      bool? didAddNodeToAnchor =
+          await this.arObjectManager!.addNode(newNode, planeAnchor: newAnchor);
+      if (didAddNodeToAnchor!) {
+        this.nodes.add(newNode);
       } else {
-        this.arSessionManager!.onError("Adding Anchor failed");
+        this.arSessionManager!.onError("Adding Node to Anchor failed");
       }
+    } else {
+      this.arSessionManager!.onError("Adding Anchor failed");
     }
   }
 
@@ -139,6 +135,7 @@ class _ObjectGesturesWidgetState extends State<ObjectGesturesWidget> {
 
   onPanEnded(String nodeName, Matrix4 newTransform) {
     print("Ended panning node " + nodeName);
+    // ignore: unused_local_variable
     final pannedNode =
         this.nodes.firstWhere((element) => element.name == nodeName);
 
@@ -159,6 +156,7 @@ class _ObjectGesturesWidgetState extends State<ObjectGesturesWidget> {
 
   onRotationEnded(String nodeName, Matrix4 newTransform) {
     print("Ended rotating node " + nodeName);
+    // ignore: unused_local_variable
     final rotatedNode =
         this.nodes.firstWhere((element) => element.name == nodeName);
 

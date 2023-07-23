@@ -13,6 +13,8 @@ List<ProductModel> products = [
   ProductModel(
     productName: "The Sawyer Dining Chair, Black, Wood and Rope",
     productImage: "assets/furniture_assets/contemporary-area-rugs.jpg",
+    productModelUrl:
+        "https://firebasestorage.googleapis.com/v0/b/decor-ride.appspot.com/o/vintage_wooden_chair_lowpoly.glb?alt=media&token=e69acf11-cf08-47b6-8973-df49e0722a10",
     rating: 5.0,
     productOwner: "MOD",
     price: 185,
@@ -25,6 +27,8 @@ List<ProductModel> products = [
   ProductModel(
     productName: "Tapestry Counter Stool",
     productImage: "assets/furniture_assets/counter_bar_stool.jpg",
+    productModelUrl:
+        "https://firebasestorage.googleapis.com/v0/b/decor-ride.appspot.com/o/vintage_wooden_chair_lowpoly.glb?alt=media&token=e69acf11-cf08-47b6-8973-df49e0722a10",
     rating: 4.5,
     productOwner: "Essentials for Living",
     price: 799,
@@ -38,6 +42,8 @@ List<ProductModel> products = [
     productName: "GDF Studio Central Vintage Brown Faux",
     productImage:
         "assets/furniture_assets/french-country-side-tables-and-end-tables.jpg",
+    productModelUrl:
+        "https://firebasestorage.googleapis.com/v0/b/decor-ride.appspot.com/o/vintage_wooden_chair_lowpoly.glb?alt=media&token=e69acf11-cf08-47b6-8973-df49e0722a10",
     rating: 4.3,
     productOwner: "GDFStudio",
     price: 117,
@@ -50,6 +56,8 @@ List<ProductModel> products = [
   ProductModel(
     productName: "Poly and Bark Paxton 24\" Counter Stool, Set of 2, T",
     productImage: "assets/furniture_assets/midcentury-dining-chairs.jpg",
+    productModelUrl:
+        "https://firebasestorage.googleapis.com/v0/b/decor-ride.appspot.com/o/vintage_wooden_chair_lowpoly.glb?alt=media&token=e69acf11-cf08-47b6-8973-df49e0722a10",
     rating: 4.6,
     productOwner: "Poly & Bark",
     price: 211,
@@ -62,6 +70,8 @@ List<ProductModel> products = [
     productName: "Mason Swivel Counter Stool, Set of 2, White, Grey",
     productImage:
         "assets/furniture_assets/transitional-armchairs-and-accent-chairs.jpg",
+    productModelUrl:
+        "https://firebasestorage.googleapis.com/v0/b/decor-ride.appspot.com/o/vintage_wooden_chair_lowpoly.glb?alt=media&token=e69acf11-cf08-47b6-8973-df49e0722a10",
     rating: 4.4,
     productOwner: "LumiSource",
     price: 374,
@@ -73,6 +83,8 @@ List<ProductModel> products = [
   ProductModel(
     productName: "Tapestry Counter Stool",
     productImage: "assets/furniture_assets/counter_bar_stool.jpg",
+    productModelUrl:
+        "https://firebasestorage.googleapis.com/v0/b/decor-ride.appspot.com/o/vintage_wooden_chair_lowpoly.glb?alt=media&token=e69acf11-cf08-47b6-8973-df49e0722a10",
     rating: 4.5,
     productOwner: "Essentials for Living",
     price: 799,

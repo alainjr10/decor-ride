@@ -2,6 +2,7 @@ import 'package:decor_ride/app/theme_extension.dart';
 import 'package:decor_ride/domain/providers/product_categories_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 class CategoryProductsScreen extends ConsumerWidget {
   const CategoryProductsScreen({super.key, required this.categoryTag});
@@ -15,12 +16,14 @@ class CategoryProductsScreen extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back,
-            color: context.theme.colorScheme.onPrimary,
-          ),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
+            icon: Icon(
+              Icons.arrow_back,
+              color: context.theme.colorScheme.onPrimary,
+            ),
+            onPressed: () {
+              context.pop();
+              context.pop("/product_categories_screen kakarakaka");
+            }),
         title: TextFormField(
           decoration: InputDecoration(
             prefixIcon: Icon(
@@ -92,7 +95,10 @@ class CategoryProductsScreen extends ConsumerWidget {
                             itemCount: data.length,
                             itemBuilder: (context, index) {
                               return InkWell(
-                                onTap: () {},
+                                onTap: () {
+                                  context.pop();
+                                  context.pop("https://firebasestorage.googleapis.com/v0/b/decor-ride.appspot.com/o/vintage_wooden_chair_lowpoly.glb?alt=media&token=e69acf11-cf08-47b6-8973-df49e0722a10");
+                                },
                                 child: Column(
                                   children: [
                                     Image.asset(
