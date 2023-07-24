@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'dart:io';
 
 import 'package:ar_flutter_plugin/managers/ar_location_manager.dart';
 import 'package:ar_flutter_plugin/managers/ar_session_manager.dart';
@@ -14,6 +15,7 @@ import 'package:ar_flutter_plugin/datatypes/hittest_result_types.dart';
 import 'package:ar_flutter_plugin/models/ar_node.dart';
 import 'package:ar_flutter_plugin/models/ar_hittest_result.dart';
 import 'package:go_router/go_router.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:vector_math/vector_math_64.dart' as math64;
 
 class ARMainView extends StatefulWidget {
@@ -32,6 +34,13 @@ class _ARMainViewState extends State<ARMainView> {
 
   List<ARNode> nodes = [];
   List<ARAnchor> anchors = [];
+
+  Directory? _appDocumentsDirectory;
+
+  void _requestAppDocumentsDirectory() async {
+    _appDocumentsDirectory = await getApplicationDocumentsDirectory();
+    log("App documents directory is ${_appDocumentsDirectory!.path}");
+  }
 
   @override
   void dispose() {
@@ -118,13 +127,13 @@ class _ARMainViewState extends State<ARMainView> {
                       onTap: () async {
                         // arSessionManager!.dispose();
                         context
-                            .push<String>('/product_categories_screen').then((value) {
-                           // setState(() {
-                              selectedNodeUrl = value;
-                              log("Selected node url is $selectedNodeUrl");
-                           // });
+                            .push<String>('/product_categories_screen')
+                            .then((value) {
+                          // setState(() {
+                          selectedNodeUrl = value;
+                          log("Selected node url is $selectedNodeUrl");
+                          // });
                         });
-
                       },
                       child: Column(
                         children: [
@@ -227,9 +236,10 @@ class _ARMainViewState extends State<ARMainView> {
   Future<void> onPlaneOrPointTapped(
     List<ARHitTestResult> hitTestResults,
   ) async {
-    if (selectedNodeUrl == null) {
+    if (selectedNodeUrl != null) {
       arSessionManager!.onError("No node selected");
       log("No image model has been selected");
+      _requestAppDocumentsDirectory();
       return;
     }
     log("\n[[[[[[[[ Selected image is $selectedNodeUrl\n\n ]]]]]]]]");
@@ -245,13 +255,16 @@ class _ARMainViewState extends State<ARMainView> {
         type: NodeType.webGLB,
         uri:
             // "https://firebasestorage.googleapis.com/v0/b/decor-ride.appspot.com/o/vintage_wooden_chair_lowpoly.glb?alt=media&token=e69acf11-cf08-47b6-8973-df49e0722a10",
-        selectedNodeUrl!,
+            "https://firebasestorage.googleapis.com/v0/b/decor-ride.appspot.com/o/mod_couch.glb?alt=media&token=22940e7f-ad3f-4e09-8e9e-52129d9117f2",
         scale: math64.Vector3(1.0, 1.0, 1.0),
         position: math64.Vector3(0.0, 0.0, 0.0),
         rotation: math64.Vector4(1.0, 0.0, 0.0, 0.0),
       );
-      bool? didAddNodeToAnchor =
-          await arObjectManager!.addNode(newNode, planeAnchor: newAnchor, );
+
+      bool? didAddNodeToAnchor = await arObjectManager!.addNode(
+        newNode,
+        planeAnchor: newAnchor,
+      );
       if (didAddNodeToAnchor!) {
         nodes.add(newNode);
         selectedNodeUrl = null;

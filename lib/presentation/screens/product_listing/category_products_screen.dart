@@ -16,14 +16,14 @@ class CategoryProductsScreen extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-            icon: Icon(
-              Icons.arrow_back,
-              color: context.theme.colorScheme.onPrimary,
-            ),
-            onPressed: () {
-              context.pop();
-              context.pop("/product_categories_screen kakarakaka");
-            }),
+          icon: Icon(
+            Icons.arrow_back,
+            color: context.theme.colorScheme.onPrimary,
+          ),
+          onPressed: () {
+            context.pop();
+          },
+        ),
         title: TextFormField(
           decoration: InputDecoration(
             prefixIcon: Icon(
@@ -97,7 +97,7 @@ class CategoryProductsScreen extends ConsumerWidget {
                               return InkWell(
                                 onTap: () {
                                   context.pop();
-                                  context.pop("https://firebasestorage.googleapis.com/v0/b/decor-ride.appspot.com/o/vintage_wooden_chair_lowpoly.glb?alt=media&token=e69acf11-cf08-47b6-8973-df49e0722a10");
+                                  context.pop(data[index].productModelUrl);
                                 },
                                 child: Column(
                                   children: [

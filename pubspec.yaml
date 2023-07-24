@@ -39,6 +39,8 @@ dependencies:
   freezed_annotation: ^2.4.1
   flutter_screenutil: ^5.8.4
 
+  path_provider: ^2.0.15
+
 
 dev_dependencies:
   flutter_test:
@@ -53,6 +55,7 @@ flutter:
   assets:
     - assets/furniture_assets/
     - assets/3d_models/
+    - assets/3d_models/gltf/
     - assets/
     - assets/AndroidRobot.gif
     - assets/ArcticFox.gif
