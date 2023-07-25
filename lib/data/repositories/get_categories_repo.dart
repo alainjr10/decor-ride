@@ -2,7 +2,7 @@ import 'package:decor_ride/data/models/items_model.dart';
 
 class GetCategoriesRepo {
   Future<List<ProductCategoryModel>> getAllCategories() async {
-    await Future.delayed(const Duration(seconds: 3));
+    await Future.delayed(const Duration(milliseconds: 1500));
     return categories;
   }
 

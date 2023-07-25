@@ -126,7 +126,7 @@ class _ARMainViewState extends State<ARMainView> {
                     ),
                     InkWell(
                       onTap: () async {
-                        // arSessionManager!.dispose();
+                        arSessionManager!.dispose();
                         context
                             .push<String>('/product_categories_screen')
                             .then((value) {
@@ -189,8 +189,8 @@ class _ARMainViewState extends State<ARMainView> {
     this.arSessionManager!.onInitialize(
           showFeaturePoints: false,
           showPlanes: true,
-          customPlaneTexturePath: "assets/triangle.png",
-          showWorldOrigin: true,
+          // customPlaneTexturePath: "assets/triangle.png",
+          showWorldOrigin: false,
           handlePans: true,
           handleRotation: true,
         );

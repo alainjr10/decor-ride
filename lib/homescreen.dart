@@ -45,8 +45,14 @@ class HomeScreen extends ConsumerWidget {
           ),
           ListTile(
             onTap: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => ARMainView()));
+              // Navigator.of(context)
+              //     .push(MaterialPageRoute(builder: (context) => ARMainView()));
+              context.pushNamed(
+                'category_products_screen',
+                pathParameters: {
+                  'categoryTag': 'furniture',
+                },
+              ); // this is the category tag
             },
             title: Text("AR Main View"),
           ),

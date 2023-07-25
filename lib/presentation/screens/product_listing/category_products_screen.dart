@@ -1,8 +1,10 @@
 import 'package:decor_ride/app/theme_extension.dart';
 import 'package:decor_ride/domain/providers/product_categories_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'dart:math' as math;
 
 class CategoryProductsScreen extends ConsumerWidget {
   const CategoryProductsScreen({super.key, required this.categoryTag});
@@ -56,83 +58,168 @@ class CategoryProductsScreen extends ConsumerWidget {
             automaticallyImplyLeading: false,
             floating: true,
             snap: true,
+            pinned: false,
             title: FloatingAppBar(),
           ),
-          SliverFillRemaining(
-            hasScrollBody: true,
-            child: RefreshIndicator(
-              onRefresh: () {
-                return ref
-                    .refresh(productsByCategoryTagProvider(categoryTag).future);
-              },
-              child: productsListProvider.when(
-                loading: () {
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                },
-                error: (error, stackTrace) {
-                  return Center(
-                    child: Text('Error: $error, stackTrace: $stackTrace'),
-                  );
-                },
-                data: (data) {
-                  debugPrint(
-                      "The length of the returned list is ${data.length} and the name is $categoryTag");
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 24.0, vertical: 16.0),
-                    child: data.isNotEmpty
-                        ? GridView.builder(
-                            primary: true,
-                            shrinkWrap: true,
-                            gridDelegate:
-                                const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                              crossAxisSpacing: 32.0,
-                              mainAxisSpacing: 32.0,
-                              childAspectRatio: 0.8,
-                            ),
-                            itemCount: data.length,
-                            itemBuilder: (context, index) {
-                              return InkWell(
-                                onTap: () {
-                                  context.pop();
-                                  context.pop(data[index].productModelUrl);
-                                },
-                                child: Column(
-                                  children: [
-                                    Image.network(
+          productsListProvider.when(
+            loading: () {
+              return const SliverToBoxAdapter(
+                child: Center(
+                  child: CircularProgressIndicator(),
+                ),
+              );
+            },
+            error: (error, stackTrace) {
+              return SliverToBoxAdapter(
+                child: Center(
+                  child: Text('Error: $error, stackTrace: $stackTrace'),
+                ),
+              );
+            },
+            data: (data) {
+              return SliverPadding(
+                padding: const EdgeInsets.symmetric(
+                    horizontal: 16.0, vertical: 16.0),
+                sliver: SliverGrid(
+                  delegate: SliverChildBuilderDelegate(
+                    (context, index) {
+                      return data.isNotEmpty
+                          ? InkWell(
+                              onTap: () {
+                                context.pop();
+                                context.pop(data[index].productModelUrl);
+                              },
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    height: 160.0,
+                                    color: Colors.white,
+                                    child: Image.network(
                                       data[index].productImage,
+                                      fit: BoxFit.fill,
                                       errorBuilder:
                                           (context, error, stackTrace) {
                                         return Image.asset(
                                           'assets/triangle.png',
                                           fit: BoxFit.fill,
-                                          height: 170.0,
                                           width: size.width,
                                         );
                                       },
                                     ),
-                                    const SizedBox(
-                                      height: 16.0,
+                                  ),
+                                  const SizedBox(
+                                    height: 16.0,
+                                  ),
+                                  Text(
+                                    data[index].productName,
+                                    textAlign: TextAlign.left,
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                  4.vGap,
+                                  RichText(
+                                    textAlign: TextAlign.start,
+                                    text: TextSpan(
+                                      children: [
+                                        TextSpan(
+                                          text: "by ",
+                                          style: context
+                                              .theme.textTheme.bodySmall!
+                                              .copyWith(
+                                            color: context
+                                                .theme.colorScheme.onPrimary
+                                                .withOpacity(0.75),
+                                          ),
+                                        ),
+                                        TextSpan(
+                                            text: data[index].productOwner),
+                                      ],
                                     ),
-                                    Text(
-                                      data[index].productName,
-                                      textAlign: TextAlign.center,
+                                  ),
+                                  8.vGap,
+                                  Row(
+                                    children: [
+                                      IgnorePointer(
+                                        child: RatingBar.builder(
+                                          initialRating: data[index].rating,
+                                          minRating: 1,
+                                          direction: Axis.horizontal,
+                                          allowHalfRating: true,
+                                          itemCount: 5,
+                                          itemSize: 16.0,
+                                          itemPadding:
+                                              const EdgeInsets.symmetric(
+                                                  horizontal: 0.0),
+                                          itemBuilder: (context, _) =>
+                                              const Icon(
+                                            Icons.star,
+                                            color: Colors.amber,
+                                          ),
+                                          onRatingUpdate: (rating) {},
+                                        ),
+                                      ),
+                                      2.hGap,
+                                      Text(
+                                        "(${(math.Random().nextInt(150) + 1).toString()})",
+                                        style: context
+                                            .theme.textTheme.bodySmall!
+                                            .copyWith(
+                                          color: context
+                                              .theme.colorScheme.onPrimary
+                                              .withOpacity(0.75),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  8.vGap,
+                                  RichText(
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    text: TextSpan(
+                                      children: [
+                                        TextSpan(
+                                          text:
+                                              "XAF ${data[index].price.round()} ",
+                                          style: context
+                                              .theme.textTheme.bodyLarge!
+                                              .copyWith(
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 16.0,
+                                          ),
+                                        ),
+                                        TextSpan(
+                                            text:
+                                                "${(data[index].price * 0.45).round()}",
+                                            style: context.textTheme.bodySmall!
+                                                .copyWith(
+                                              decoration:
+                                                  TextDecoration.lineThrough,
+                                              color: context
+                                                  .colorScheme.onPrimary
+                                                  .withOpacity(0.75),
+                                            )),
+                                      ],
                                     ),
-                                  ],
-                                ),
-                              );
-                            },
-                          )
-                        : const Center(
-                            child: Text("No items found for this category"),
-                          ),
-                  );
-                },
-              ),
-            ),
+                                  ),
+                                ],
+                              ),
+                            )
+                          : const Center(
+                              child: Text("No items found for this category"),
+                            );
+                    },
+                    childCount: data.length,
+                  ),
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 32.0,
+                    mainAxisSpacing: 32.0,
+                    childAspectRatio: 1 / 1.7,
+                  ),
+                ),
+              );
+            },
           ),
         ],
       ),
