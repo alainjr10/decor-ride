@@ -58,7 +58,8 @@ class CategoryProductsScreen extends ConsumerWidget {
             snap: true,
             title: FloatingAppBar(),
           ),
-          SliverToBoxAdapter(
+          SliverFillRemaining(
+            hasScrollBody: true,
             child: RefreshIndicator(
               onRefresh: () {
                 return ref
@@ -101,11 +102,17 @@ class CategoryProductsScreen extends ConsumerWidget {
                                 },
                                 child: Column(
                                   children: [
-                                    Image.asset(
+                                    Image.network(
                                       data[index].productImage,
-                                      fit: BoxFit.fill,
-                                      height: 170.0,
-                                      width: size.width,
+                                      errorBuilder:
+                                          (context, error, stackTrace) {
+                                        return Image.asset(
+                                          'assets/triangle.png',
+                                          fit: BoxFit.fill,
+                                          height: 170.0,
+                                          width: size.width,
+                                        );
+                                      },
                                     ),
                                     const SizedBox(
                                       height: 16.0,

@@ -80,11 +80,9 @@ class ProductCategoriesScreen extends ConsumerWidget {
                     onTap: () {
                       context.pushNamed('category_products_screen',
                           pathParameters: {
-                            'categoryTag': data[index]
-                                .categoryName
-                                .toLowerCase()
-                                .trim()
-                                .replaceAll(" ", "_"),
+                            'categoryTag':
+                                data[index].categoryName.toLowerCase().trim(),
+                            // .replaceAll(" ", "_"),
                           });
                       // context.push('/category_products_screen', extra: );
                     },

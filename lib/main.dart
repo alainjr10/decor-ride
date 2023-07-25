@@ -12,6 +12,19 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  // if (kDebugMode) {
+  //   try {
+  //     FirebaseFirestore.instance.useFirestoreEmulator('localhost', 8088);
+  //     await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
+  //     // add firebase storage emulator
+  //     await FirebaseStorage.instance.useStorageEmulator('localhost', 9199);
+  //   } catch (e) {
+  //     // ignore: avoid_print
+  //     print(e);
+  //   }
+  // }
+
   runApp(const ProviderScope(child: MainApp()));
 }
 

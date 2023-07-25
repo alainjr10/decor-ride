@@ -80,4 +80,23 @@ class ProductModel {
       productCategoryTag: productCategoryTag ?? this.productCategoryTag,
     );
   }
+
+  // from json method
+  factory ProductModel.fromJson(Map<String, dynamic> json) {
+    return ProductModel(
+      productName: json['product_name'],
+      productImage: json['product_image_url'],
+      productModelUrl: json['product_model_url'],
+      rating: double.parse(json['rating'].toString()),
+      productOwner: json['product_owner'],
+      price: double.parse(json['price'].toString()),
+      discountPrice:
+          json.containsKey('discount_price') ? json['discountPrice'] : 0,
+      numberOfReviews:
+          json.containsKey('number_of_reviews') ? json['number_of_reviews'] : 0,
+      productTag: json.containsKey('product_tag') ? json['product_tag'] : "",
+      bestSeller: json.containsKey('best_seller') ? json['best_seller'] : false,
+      productCategoryTag: json['category'],
+    );
+  }
 }

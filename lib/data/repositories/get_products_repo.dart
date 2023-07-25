@@ -1,11 +1,26 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:decor_ride/data/models/items_model.dart';
 
 class GetCategoryProductsRepo {
+  final _firestore = FirebaseFirestore.instance;
   Future<List<ProductModel>> getProductsByCategory(String categoryId) async {
-    await Future.delayed(const Duration(seconds: 2));
-    return products
-        .where((element) => element.productCategoryTag == categoryId)
-        .toList();
+    List<ProductModel> productsList = [];
+    // await Future.delayed(const Duration(seconds: 2));
+    await _firestore
+        .collection("products")
+        .where("category", isEqualTo: categoryId.toLowerCase())
+        .get()
+        .then((value) {
+      for (var element in value.docs) {
+        productsList.add(ProductModel.fromJson(element.data()));
+        // element.data().forEach((key, value) {
+        //   products.add(ProductModel.fromJson(value));
+        // });
+      }
+    });
+    return productsList;
+    // .where((element) => element.productCategoryTag == categoryId)
+    // .toList();
   }
 }
 
