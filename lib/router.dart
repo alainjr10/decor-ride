@@ -1,3 +1,7 @@
+import 'package:decor_ride/common/widgets/bottom_nav.dart';
+import 'package:decor_ride/features/ideabook/presentation/screens/ideabook_screen.dart';
+import 'package:decor_ride/features/notifications/presentation/screens/notifications_screen.dart';
+import 'package:decor_ride/features/profile/presentation/screens/profile_screen.dart';
 import 'package:decor_ride/homescreen.dart';
 import 'package:decor_ride/presentation/screens/product_listing/category_products_screen.dart';
 import 'package:decor_ride/presentation/screens/product_listing/product_categories_screen.dart';
@@ -14,6 +18,7 @@ final _auth = FirebaseAuth.instance;
 
 final router = GoRouter(
   initialLocation: '/',
+  navigatorKey: _rootNavigatorKey,
   // redirect: (context, state) {
   //   if (_auth.currentUser == null) {
   //     return '/login';
@@ -21,46 +26,50 @@ final router = GoRouter(
   //   return '/home-screen';
   // },
   routes: [
-    // ShellRoute(
-    //   navigatorKey: _shellNavigatorKey,
-    //   builder: (context, state, child) {
-    //     return WillPopScope(
-    //         child: BottomNav(
-    //           child: child,
-    //         ),
-    //         // on will pop, ask user if they really want to exit using a snack, on double tap backbutton, exit
-    //         onWillPop: () async {
-    //           final isFirstRouteInCurrentTab =
-    //               !await _shellNavigatorKey.currentState!.maybePop();
-    //           if (isFirstRouteInCurrentTab) {
-    //             if (_shellNavigatorKey.currentState!.canPop()) {
-    //               return false;
-    //             } else {
-    //               return tapAgainToExitFn(context);
-    //             }
-    //           }
-    //           return isFirstRouteInCurrentTab;
-    //         });
-    //   },
-    //   routes: [
-    //     GoRoute(
-    //       path: '/home-screen',
-    //       builder: (context, state) => const HomeScreen(),
-    //     ),
-    //     GoRoute(
-    //       path: '/user-profile',
-    //       builder: (context, state) => const UserProfile(),
-    //     ),
-    //     GoRoute(
-    //       path: '/notifications',
-    //       builder: (context, state) => const Notifications(),
-    //     ),
-    //     GoRoute(
-    //       path: '/settings',
-    //       builder: (context, state) => const Setting(),
-    //     ),
-    //   ],
-    // ),
+    ShellRoute(
+      navigatorKey: _shellNavigatorKey,
+      pageBuilder: (context, state, child) {
+        return NoTransitionPage(
+          child: WillPopScope(
+              child: BottomNavBar(
+                location: state.location,
+                child: child,
+              ),
+              // on will pop, ask user if they really want to exit using a snack, on double tap backbutton, exit
+              onWillPop: () async {
+                final isFirstRouteInCurrentTab =
+                    !await _shellNavigatorKey.currentState!.maybePop();
+                if (isFirstRouteInCurrentTab) {
+                  if (_shellNavigatorKey.currentState!.canPop()) {
+                    return false;
+                  } else {
+                    return tapAgainToExitFn(context);
+                  }
+                }
+                return isFirstRouteInCurrentTab;
+              }),
+        );
+      },
+      routes: [
+        GoRoute(
+          path: '/',
+          parentNavigatorKey: _shellNavigatorKey,
+          builder: (context, state) => HomeScreen(),
+        ),
+        GoRoute(
+          path: '/notifications',
+          builder: (context, state) => const Notifications(),
+        ),
+        GoRoute(
+          path: '/ideabook',
+          builder: (context, state) => const IdeaBook(),
+        ),
+        GoRoute(
+          path: '/user-profile',
+          builder: (context, state) => const UserProfile(),
+        ),
+      ],
+    ),
     // GoRoute(
     //   path: '/signup',
     //   builder: (context, state) => const SignUp(),
