@@ -1,4 +1,9 @@
 import 'package:decor_ride/common/widgets/bottom_nav.dart';
+import 'package:decor_ride/features/auth/presentation/screens/email_screen.dart';
+import 'package:decor_ride/features/auth/presentation/screens/password_screen.dart';
+import 'package:decor_ride/features/auth/presentation/screens/personal_details.dart';
+import 'package:decor_ride/features/auth/presentation/screens/welcome_screen.dart';
+import 'package:decor_ride/features/ideabook/presentation/screens/create_ideabook.dart';
 import 'package:decor_ride/features/ideabook/presentation/screens/ideabook_screen.dart';
 import 'package:decor_ride/features/notifications/presentation/screens/notifications_screen.dart';
 import 'package:decor_ride/features/profile/presentation/screens/profile_screen.dart';
@@ -17,7 +22,7 @@ final GlobalKey<NavigatorState> _shellNavigatorKey =
 final _auth = FirebaseAuth.instance;
 
 final router = GoRouter(
-  initialLocation: '/',
+  initialLocation: '/welcome',
   navigatorKey: _rootNavigatorKey,
   // redirect: (context, state) {
   //   if (_auth.currentUser == null) {
@@ -57,14 +62,25 @@ final router = GoRouter(
           builder: (context, state) => HomeScreen(),
         ),
         GoRoute(
+          parentNavigatorKey: _shellNavigatorKey,
           path: '/notifications',
           builder: (context, state) => const Notifications(),
         ),
         GoRoute(
+          parentNavigatorKey: _shellNavigatorKey,
           path: '/ideabook',
           builder: (context, state) => const IdeaBook(),
+          routes: [
+            GoRoute(
+              parentNavigatorKey: _rootNavigatorKey,
+              path: 'create_ideabook',
+              name: 'createIdeabook',
+              builder: (context, state) => const CreateIdeabookScreen(),
+            ),
+          ],
         ),
         GoRoute(
+          parentNavigatorKey: _shellNavigatorKey,
           path: '/user-profile',
           builder: (context, state) => const UserProfile(),
         ),
@@ -74,6 +90,26 @@ final router = GoRouter(
     //   path: '/signup',
     //   builder: (context, state) => const SignUp(),
     // ),
+    GoRoute(
+      parentNavigatorKey: _rootNavigatorKey,
+      path: '/welcome',
+      builder: (context, state) => const WelcomeScreen(),
+    ),
+    GoRoute(
+      parentNavigatorKey: _rootNavigatorKey,
+      path: '/enter_email',
+      builder: (context, state) => const EnterEmailScreen(),
+    ),
+    GoRoute(
+      parentNavigatorKey: _rootNavigatorKey,
+      path: '/enter_password',
+      builder: (context, state) => const EnterPasswordScreen(),
+    ),
+    GoRoute(
+      parentNavigatorKey: _rootNavigatorKey,
+      path: '/personal_details',
+      builder: (context, state) => const PersonalDetailsScreen(),
+    ),
     GoRoute(
       path: '/',
       builder: (context, state) => HomeScreen(),

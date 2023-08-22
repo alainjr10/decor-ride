@@ -2,6 +2,7 @@
 // this will allow us to access the theme data from anywhere in the app
 
 import 'package:flutter/material.dart';
+import 'dart:developer' as dev;
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 extension ThemeExtension on BuildContext {
@@ -11,6 +12,19 @@ extension ThemeExtension on BuildContext {
   // Size
   double get width => MediaQuery.of(this).size.width;
   double get height => MediaQuery.of(this).size.height;
+}
+
+// dart developer log extension
+// extension LogExtension on BuildContext {
+//   void log(dynamic message) {
+//     dev.log(message.toString());
+//   }
+// }
+
+extension Log on String {
+  void log() {
+    dev.log(this);
+  }
 }
 
 extension Spacing on num {

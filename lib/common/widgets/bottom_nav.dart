@@ -40,7 +40,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       icon: Icon(Icons.person_4),
       activeIcon: Icon(Icons.account_circle),
       label: 'Profile',
-      initialLocation: '/profile',
+      initialLocation: '/user-profile',
     ),
   ];
 
@@ -53,6 +53,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
         selectedLabelStyle: labelStyle,
         unselectedLabelStyle: labelStyle,
         selectedItemColor: context.colorScheme.onPrimary,
+        backgroundColor: context.colorScheme.surface,
         selectedFontSize: 12,
         // unselectedItemColor: const Color(0xFF838383),
         unselectedItemColor: context.theme.disabledColor,
@@ -82,7 +83,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       _currentIndex = index;
     });
     if (index == 3) {
-      context.push('/profile');
+      context.push('/user-profile');
     } else {
       router.go(location);
     }
