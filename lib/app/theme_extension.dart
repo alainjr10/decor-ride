@@ -23,7 +23,7 @@ extension ThemeExtension on BuildContext {
 
 extension Log on String {
   void log() {
-    dev.log(this);
+    dev.log(toString());
   }
 }
 

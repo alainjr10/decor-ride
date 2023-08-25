@@ -102,8 +102,10 @@ final router = GoRouter(
     ),
     GoRoute(
       parentNavigatorKey: _rootNavigatorKey,
-      path: '/enter_password',
-      builder: (context, state) => const EnterPasswordScreen(),
+      path: '/enter_password/:authType',
+      builder: (context, state) => EnterPasswordScreen(
+        authType: state.pathParameters['authType']!,
+      ),
     ),
     GoRoute(
       parentNavigatorKey: _rootNavigatorKey,

@@ -1,10 +1,17 @@
 import 'package:decor_ride/app/theme_extension.dart';
 import 'package:decor_ride/features/auth/data/data_sources/firebase_auth_api.dart';
+import 'package:decor_ride/features/auth/data/data_sources/firebase_auth_api_impl.dart';
 import 'package:decor_ride/features/auth/data/models/user_model.dart';
 import 'package:decor_ride/features/auth/domain/entities/create_user_entity.dart';
 import 'package:decor_ride/features/auth/domain/entities/signin_user_entity.dart';
 import 'package:decor_ride/features/auth/domain/repository/register_repo.dart';
 import 'package:decor_ride/features/auth/domain/repository/signin_repo.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+final authRepoImplProvider = Provider<AuthRepoImpl>((ref) {
+  final firebaseAuthApi = ref.watch(firebaseAuthApiProvider);
+  return AuthRepoImpl(firebaseAuthApi: firebaseAuthApi);
+});
 
 class AuthRepoImpl implements RegisterRepo, SignInRepo {
   final FirebaseAuthApi firebaseAuthApi;

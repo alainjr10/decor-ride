@@ -5,6 +5,11 @@ import 'package:decor_ride/features/auth/data/models/user_model.dart';
 import 'package:decor_ride/features/auth/domain/entities/create_user_entity.dart';
 import 'package:decor_ride/features/auth/domain/entities/signin_user_entity.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+final firebaseAuthApiProvider = Provider<FirebaseAuthApiImpl>((ref) {
+  return FirebaseAuthApiImpl();
+});
 
 class FirebaseAuthApiImpl implements FirebaseAuthApi {
   final _auth = FirebaseAuth.instance;
