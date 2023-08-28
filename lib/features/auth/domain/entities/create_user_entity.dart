@@ -29,4 +29,10 @@ class CreateUserEntity {
       'profilePictureUrl': profilePictureUrl,
     };
   }
+
+  // to String
+  @override
+  String toString() {
+    return 'CreateUserEntity(email: $email, password: $password, firstName: $firstName, lastName: $lastName, postCode: $postCode, userType: $userType, profilePictureUrl: $profilePictureUrl)';
+  }
 }

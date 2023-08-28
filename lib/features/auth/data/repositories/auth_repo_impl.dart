@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:decor_ride/app/theme_extension.dart';
 import 'package:decor_ride/features/auth/data/data_sources/firebase_auth_api.dart';
 import 'package:decor_ride/features/auth/data/data_sources/firebase_auth_api_impl.dart';
@@ -28,7 +29,7 @@ class AuthRepoImpl implements RegisterRepo, SignInRepo {
   }
 
   @override
-  Future<UserModel> createUserWithEmailAndPassword(
+  Future<Either<String, UserModel>> createUserWithEmailAndPassword(
       CreateUserEntity createUserEntity) {
     try {
       return firebaseAuthApi.createUserWithEmailAndPassword(createUserEntity);
@@ -49,7 +50,7 @@ class AuthRepoImpl implements RegisterRepo, SignInRepo {
   }
 
   @override
-  Future<UserModel> signInWithEmailAndPassword(
+  Future<Either<String, UserModel>> signInWithEmailAndPassword(
       SigninUserEntity signInUserEntity) {
     try {
       return firebaseAuthApi.signInWithEmailAndPassword(signInUserEntity);

@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dartz/dartz.dart';
 import 'package:decor_ride/app/theme_extension.dart';
 import 'package:decor_ride/features/auth/data/data_sources/firebase_auth_api.dart';
 import 'package:decor_ride/features/auth/data/models/user_model.dart';
@@ -30,32 +31,31 @@ class FirebaseAuthApiImpl implements FirebaseAuthApi {
   }
 
   @override
-  Future<UserModel> createUserWithEmailAndPassword(
+  Future<Either<String, UserModel>> createUserWithEmailAndPassword(
       CreateUserEntity createUserEntity) async {
     try {
       final userCredential = await _auth.createUserWithEmailAndPassword(
           email: createUserEntity.email, password: createUserEntity.password);
       final user = userCredential.user!;
-      await _firestore.collection('users').doc(user.uid).set({
-        'email': user.email,
-        'userId': user.uid,
-        'firstName': createUserEntity.firstName,
-        'lastName': createUserEntity.lastName,
-        'userType': createUserEntity.userType,
-        'postCode': createUserEntity.postCode,
-        'profilePictureUrl': createUserEntity.profilePictureUrl,
+      Map<String, dynamic> updatedMap = {
+        ...createUserEntity.toJson(),
         'createdAt': FieldValue.serverTimestamp(),
         'updatedAt': FieldValue.serverTimestamp(),
-      });
-      return UserModel.fromJson(user.toString());
-    } catch (e, stackTrace) {
+        'userId': user.uid,
+      };
+      await _firestore.collection('users').doc(user.uid).set(
+            updatedMap,
+          );
+      await user.updateDisplayName('firstName');
+      return right(UserModel.fromJson(updatedMap));
+    } on FirebaseAuthException catch (e, stackTrace) {
       "Error creating user: $e, With Stacktrace: $stackTrace".log();
-      rethrow;
+      return left(e.message ?? 'An error occurred creating user');
     }
   }
 
   @override
-  Future<UserModel> signInWithEmailAndPassword(
+  Future<Either<String, UserModel>> signInWithEmailAndPassword(
       SigninUserEntity signInUserEntity) async {
     try {
       final userCredential = await _auth.signInWithEmailAndPassword(
@@ -63,10 +63,10 @@ class FirebaseAuthApiImpl implements FirebaseAuthApi {
       final user = userCredential.user!;
       final userSnapshot =
           await _firestore.collection('users').doc(user.uid).get();
-      return UserModel.fromMap(userSnapshot.data()!);
-    } catch (e, stackTrace) {
+      return right(UserModel.fromMap(userSnapshot.data()!));
+    } on FirebaseAuthException catch (e, stackTrace) {
       "Error signing in user: $e, With Stacktrace: $stackTrace".log();
-      rethrow;
+      return left(e.message ?? 'An error occurred signing in user');
     }
   }
 
