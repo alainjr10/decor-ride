@@ -1,7 +1,10 @@
 import 'package:decor_ride/app/providers/global_providers.dart';
 import 'package:decor_ride/app/theme_extension.dart';
 import 'package:decor_ride/common/widgets/custom_elevated_button.dart';
+import 'package:decor_ride/features/auth/domain/entities/signin_user_entity.dart';
+import 'package:decor_ride/features/auth/presentation/providers/auth_provider.dart';
 import 'package:decor_ride/features/auth/presentation/providers/check_valid_password_provider.dart';
+import 'package:decor_ride/features/auth/presentation/providers/states/auth_states.dart';
 import 'package:decor_ride/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -21,6 +24,19 @@ class EnterPasswordScreen extends HookConsumerWidget {
     final _formKey = useState(GlobalKey<FormState>());
     final checkValidPasswordState =
         ref.watch(checkValidPasswordNotifierProvider);
+    final FocusScopeNode currentFocus = FocusScope.of(context);
+    if (authType == "signin") {
+      ref.listen<AuthStates>(authNotifierProvider, (_, state) {
+        if (state.authSuccess == true &&
+            state.showError == false &&
+            state.isSubmitting == false) {
+          context.go('/');
+        } else if (state.authSuccess == false && state.showError == true) {
+          showErrorSnackBar(
+              context, "Error registering user: \n ${state.errorMessage}");
+        }
+      });
+    }
     return Scaffold(
       appBar: AppBar(),
       body: Padding(
@@ -104,24 +120,48 @@ class EnterPasswordScreen extends HookConsumerWidget {
                           onPressed: () {},
                           child: Text(
                             "Forgot password?",
-                            style: context.textTheme.bodyMedium,
+                            style: context.textTheme.bodyMedium!.copyWith(
+                                color: context.colorScheme.primary,
+                                fontWeight: FontWeight.bold),
                           ),
                         ),
                       ],
                     ),
               24.vGap,
-              CustomElevatedButton(
-                text: "SIGN UP",
-                backgroundColor: context.colorScheme.primary,
-                foregroundColor: context.colorScheme.onSecondaryContainer,
-                onPressed: () {
-                  if (_formKey.value.currentState!.validate()) {
-                    context.push('/personal_details');
-                  }
-
-                  // context.push('/personal_details');
-                },
-              ),
+              authType == "signup"
+                  ? CustomElevatedButton(
+                      text: "SIGN UP",
+                      backgroundColor: context.colorScheme.primary,
+                      foregroundColor: context.colorScheme.onSecondaryContainer,
+                      onPressed: () {
+                        if (_formKey.value.currentState!.validate()) {
+                          if (!currentFocus.hasPrimaryFocus) {
+                            currentFocus.unfocus();
+                          }
+                          context.push('/personal_details');
+                        }
+                      },
+                    )
+                  : CustomElevatedButton(
+                      text: "SIGN UP",
+                      backgroundColor: context.colorScheme.primary,
+                      foregroundColor: context.colorScheme.onSecondaryContainer,
+                      isLoading: ref.watch(authNotifierProvider).isSubmitting,
+                      onPressed: () {
+                        if (_formKey.value.currentState!.validate()) {
+                          if (!currentFocus.hasPrimaryFocus) {
+                            currentFocus.unfocus();
+                          }
+                          SigninUserEntity signinUserEntity = SigninUserEntity(
+                              email: ref.watch(emailProvider),
+                              password: passwordController.text);
+                          ref
+                              .read(authNotifierProvider.notifier)
+                              .signInUser(signinUserEntity: signinUserEntity);
+                          // context.push('/personal_details');
+                        }
+                      },
+                    ),
             ],
           ),
         ),

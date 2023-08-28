@@ -1,3 +1,4 @@
+import 'package:decor_ride/app/theme_extension.dart';
 import 'package:decor_ride/common/widgets/bottom_nav.dart';
 import 'package:decor_ride/features/auth/presentation/screens/email_screen.dart';
 import 'package:decor_ride/features/auth/presentation/screens/password_screen.dart';
@@ -22,7 +23,7 @@ final GlobalKey<NavigatorState> _shellNavigatorKey =
 final _auth = FirebaseAuth.instance;
 
 final router = GoRouter(
-  initialLocation: '/welcome',
+  initialLocation: '/',
   navigatorKey: _rootNavigatorKey,
   // redirect: (context, state) {
   //   if (_auth.currentUser == null) {
@@ -59,7 +60,21 @@ final router = GoRouter(
         GoRoute(
           path: '/',
           parentNavigatorKey: _shellNavigatorKey,
-          builder: (context, state) => HomeScreen(),
+          builder: (context, state) {
+            return HomeScreen();
+          },
+          redirect: (context, state) {
+            User? firebaseUser = FirebaseAuth.instance.currentUser;
+            if (firebaseUser != null) {
+              "Redirecting now......".log();
+              return null;
+            }
+            if (firebaseUser == null) {
+              return "/welcome";
+            }
+            return null;
+          },
+          // builder: (context, state) => HomeScreen(),
         ),
         GoRoute(
           parentNavigatorKey: _shellNavigatorKey,

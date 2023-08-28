@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:decor_ride/app/theme_extension.dart';
 import 'package:decor_ride/features/auth/domain/entities/create_user_entity.dart';
+import 'package:decor_ride/features/auth/domain/entities/signin_user_entity.dart';
 import 'package:decor_ride/features/auth/domain/use_cases/auth_value_objects.dart';
 import 'package:decor_ride/features/auth/domain/use_cases/register_usecase.dart';
 import 'package:decor_ride/features/auth/domain/use_cases/signin_usecases.dart';
@@ -43,6 +44,43 @@ class AuthNotifier extends StateNotifier<AuthStates> {
           authFailureOrSuccess: none());
     } catch (e, stackTrace) {
       "error registering user: $e, with stacktrace: $stackTrace".log();
+      state = state.copyWith(
+          isSubmitting: false,
+          showError: true,
+          authSuccess: false,
+          authFailureOrSuccess: some(left(const AuthFailures.serverError())));
+    }
+  }
+
+  Future<void> signInUser({required SigninUserEntity signinUserEntity}) async {
+    EmailAddress emailAddress = EmailAddress(email: signinUserEntity.email);
+    Password password = Password(password: signinUserEntity.password);
+    state = state.copyWith(
+        isSubmitting: true,
+        emailAddress: emailAddress,
+        password: password,
+        authFailureOrSuccess: none());
+
+    try {
+      final response = await signInUseCase(signinUserEntity);
+      // await Future.delayed(const Duration(seconds: 3));
+      state = response.fold(
+        (left) => state.copyWith(
+            isSubmitting: false,
+            showError: true,
+            authSuccess: false,
+            errorMessage: left.toString(),
+            authFailureOrSuccess: none()),
+        (right) => state.copyWith(
+            isSubmitting: false,
+            showError: false,
+            authSuccess: true,
+            authFailureOrSuccess: none()),
+      );
+      "response is $response \n".log();
+      "and state is $state \n".log();
+    } catch (e, stackTrace) {
+      "error signing in user: $e, with stacktrace: $stackTrace".log();
       state = state.copyWith(
           isSubmitting: false,
           showError: true,

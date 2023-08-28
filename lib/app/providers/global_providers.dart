@@ -8,3 +8,5 @@ final passwordValueProvider = StateProvider<AuthValueFailure>(
     (ref) => const AuthValueFailure.shortPassword(failedValue: ""));
 
 final togglePasswordVisibilityProvider = StateProvider<bool>((ref) => true);
+
+final logoutUserProvider = StateProvider<bool>((ref) => false);

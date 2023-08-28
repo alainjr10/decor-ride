@@ -25,6 +25,7 @@ class AuthStates with _$AuthStates {
     required bool isSubmitting,
     required bool showError,
     required bool authSuccess,
+    required String errorMessage,
     required Option<Either<AuthFailures, Unit>> authFailureOrSuccess,
   }) = _AuthStates;
 
@@ -34,5 +35,6 @@ class AuthStates with _$AuthStates {
       showError: false,
       isSubmitting: false,
       authSuccess: false,
+      errorMessage: "",
       authFailureOrSuccess: none());
 }

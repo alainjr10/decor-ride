@@ -21,6 +21,7 @@ class CheckUserEmailNotifier extends StateNotifier<AsyncValue<bool>> {
       "about to check user email".log();
       // Future.delayed(const Duration(seconds: 2));
       final result = await checkUserEmailUseCase(email);
+      // "finished checking user email and value is $result".log();
       state = AsyncValue.data(result);
     } catch (e, stackTrace) {
       state = AsyncValue.error(e, stackTrace);

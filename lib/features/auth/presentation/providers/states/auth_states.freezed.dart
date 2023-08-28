@@ -21,6 +21,7 @@ mixin _$AuthStates {
   bool get isSubmitting => throw _privateConstructorUsedError;
   bool get showError => throw _privateConstructorUsedError;
   bool get authSuccess => throw _privateConstructorUsedError;
+  String get errorMessage => throw _privateConstructorUsedError;
   Option<Either<AuthFailures, Unit>> get authFailureOrSuccess =>
       throw _privateConstructorUsedError;
 
@@ -41,6 +42,7 @@ abstract class $AuthStatesCopyWith<$Res> {
       bool isSubmitting,
       bool showError,
       bool authSuccess,
+      String errorMessage,
       Option<Either<AuthFailures, Unit>> authFailureOrSuccess});
 }
 
@@ -62,6 +64,7 @@ class _$AuthStatesCopyWithImpl<$Res, $Val extends AuthStates>
     Object? isSubmitting = null,
     Object? showError = null,
     Object? authSuccess = null,
+    Object? errorMessage = null,
     Object? authFailureOrSuccess = null,
   }) {
     return _then(_value.copyWith(
@@ -85,6 +88,10 @@ class _$AuthStatesCopyWithImpl<$Res, $Val extends AuthStates>
           ? _value.authSuccess
           : authSuccess // ignore: cast_nullable_to_non_nullable
               as bool,
+      errorMessage: null == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String,
       authFailureOrSuccess: null == authFailureOrSuccess
           ? _value.authFailureOrSuccess
           : authFailureOrSuccess // ignore: cast_nullable_to_non_nullable
@@ -107,6 +114,7 @@ abstract class _$$_AuthStatesCopyWith<$Res>
       bool isSubmitting,
       bool showError,
       bool authSuccess,
+      String errorMessage,
       Option<Either<AuthFailures, Unit>> authFailureOrSuccess});
 }
 
@@ -126,6 +134,7 @@ class __$$_AuthStatesCopyWithImpl<$Res>
     Object? isSubmitting = null,
     Object? showError = null,
     Object? authSuccess = null,
+    Object? errorMessage = null,
     Object? authFailureOrSuccess = null,
   }) {
     return _then(_$_AuthStates(
@@ -149,6 +158,10 @@ class __$$_AuthStatesCopyWithImpl<$Res>
           ? _value.authSuccess
           : authSuccess // ignore: cast_nullable_to_non_nullable
               as bool,
+      errorMessage: null == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String,
       authFailureOrSuccess: null == authFailureOrSuccess
           ? _value.authFailureOrSuccess
           : authFailureOrSuccess // ignore: cast_nullable_to_non_nullable
@@ -166,6 +179,7 @@ class _$_AuthStates with DiagnosticableTreeMixin implements _AuthStates {
       required this.isSubmitting,
       required this.showError,
       required this.authSuccess,
+      required this.errorMessage,
       required this.authFailureOrSuccess});
 
   @override
@@ -179,11 +193,13 @@ class _$_AuthStates with DiagnosticableTreeMixin implements _AuthStates {
   @override
   final bool authSuccess;
   @override
+  final String errorMessage;
+  @override
   final Option<Either<AuthFailures, Unit>> authFailureOrSuccess;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AuthStates(emailAddress: $emailAddress, password: $password, isSubmitting: $isSubmitting, showError: $showError, authSuccess: $authSuccess, authFailureOrSuccess: $authFailureOrSuccess)';
+    return 'AuthStates(emailAddress: $emailAddress, password: $password, isSubmitting: $isSubmitting, showError: $showError, authSuccess: $authSuccess, errorMessage: $errorMessage, authFailureOrSuccess: $authFailureOrSuccess)';
   }
 
   @override
@@ -196,6 +212,7 @@ class _$_AuthStates with DiagnosticableTreeMixin implements _AuthStates {
       ..add(DiagnosticsProperty('isSubmitting', isSubmitting))
       ..add(DiagnosticsProperty('showError', showError))
       ..add(DiagnosticsProperty('authSuccess', authSuccess))
+      ..add(DiagnosticsProperty('errorMessage', errorMessage))
       ..add(DiagnosticsProperty('authFailureOrSuccess', authFailureOrSuccess));
   }
 
@@ -214,13 +231,15 @@ class _$_AuthStates with DiagnosticableTreeMixin implements _AuthStates {
                 other.showError == showError) &&
             (identical(other.authSuccess, authSuccess) ||
                 other.authSuccess == authSuccess) &&
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage) &&
             (identical(other.authFailureOrSuccess, authFailureOrSuccess) ||
                 other.authFailureOrSuccess == authFailureOrSuccess));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, emailAddress, password,
-      isSubmitting, showError, authSuccess, authFailureOrSuccess);
+      isSubmitting, showError, authSuccess, errorMessage, authFailureOrSuccess);
 
   @JsonKey(ignore: true)
   @override
@@ -236,6 +255,7 @@ abstract class _AuthStates implements AuthStates {
       required final bool isSubmitting,
       required final bool showError,
       required final bool authSuccess,
+      required final String errorMessage,
       required final Option<Either<AuthFailures, Unit>>
           authFailureOrSuccess}) = _$_AuthStates;
 
@@ -249,6 +269,8 @@ abstract class _AuthStates implements AuthStates {
   bool get showError;
   @override
   bool get authSuccess;
+  @override
+  String get errorMessage;
   @override
   Option<Either<AuthFailures, Unit>> get authFailureOrSuccess;
   @override

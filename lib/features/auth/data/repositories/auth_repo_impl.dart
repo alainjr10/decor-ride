@@ -55,7 +55,8 @@ class AuthRepoImpl implements RegisterRepo, SignInRepo {
     try {
       return firebaseAuthApi.signInWithEmailAndPassword(signInUserEntity);
     } catch (e, stackTrace) {
-      "Error signing in user: $e, With Stacktrace: $stackTrace".log();
+      "From auth repo (not auth api impl) Error signing in user: $e, With Stacktrace: $stackTrace"
+          .log();
       rethrow;
     }
   }
