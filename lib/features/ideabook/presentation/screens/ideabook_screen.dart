@@ -1,5 +1,6 @@
 import 'package:decor_ride/app/theme_extension.dart';
 import 'package:decor_ride/common/widgets/outlined_button.dart';
+import 'package:decor_ride/features/ideabook/presentation/providers/get_ideabooks_provider.dart';
 import 'package:decor_ride/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -11,6 +12,7 @@ class IdeaBook extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final List<String> ideaBooks = ["Book 1", "Book 2", "Book 3", "Book 4"];
+    final ideabooksNotifierProvider = ref.watch(getAllIdeabooksProvider);
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -30,7 +32,7 @@ class IdeaBook extends ConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  "4 IdeaBooks",
+                  "${ideabooksNotifierProvider.value!.length()} IdeaBooks",
                   style: kH3TextStyle(context),
                 ),
                 CustomOutlinedButton.outlinedButton(
@@ -46,59 +48,87 @@ class IdeaBook extends ConsumerWidget {
               ],
             ),
             24.vGap,
-            Flexible(
-              child: GridView.count(
-                crossAxisSpacing: 4,
-                mainAxisSpacing: 8,
-                crossAxisCount: 2,
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                childAspectRatio: (1 / 1.3),
-                children: <Widget>[
-                  ...ideaBooks.map(
-                    (e) => SizedBox(
-                      height: 300.0,
-                      width: 140.0,
-                      child: Card(
-                        elevation: 2.0,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(4.0),
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                              height: 120.0,
-                              decoration: BoxDecoration(
-                                color: context.colorScheme.surface,
-                                // borderRadius: BorderRadius.circular(.0),
-                              ),
-                            ),
-                            8.vGap,
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 8.0, vertical: 8.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    e,
+            ideabooksNotifierProvider.when(
+              loading: () => const Center(
+                child: CircularProgressIndicator(),
+              ),
+              error: (message, stacktrace) {
+                return Center(
+                  child: Text(message.toString()),
+                );
+              },
+              data: (data) {
+                return data.fold(
+                  (ideabooks) {
+                    if (ideabooks.isEmpty) {
+                      return const Center(
+                        child: Text("No IdeaBooks"),
+                      );
+                    } else {
+                      return Flexible(
+                        child: GridView.count(
+                          crossAxisSpacing: 4,
+                          mainAxisSpacing: 8,
+                          crossAxisCount: 2,
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          childAspectRatio: (1 / 1.3),
+                          children: <Widget>[
+                            ...ideaBooks.map(
+                              (e) => SizedBox(
+                                height: 300.0,
+                                width: 140.0,
+                                child: Card(
+                                  elevation: 2.0,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(4.0),
                                   ),
-                                  40.vGap,
-                                  Text(
-                                    "No Ideas saved",
-                                    style: context.textTheme.bodySmall,
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        height: 120.0,
+                                        decoration: BoxDecoration(
+                                          color: context.colorScheme.surface,
+                                          // borderRadius: BorderRadius.circular(.0),
+                                        ),
+                                      ),
+                                      8.vGap,
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 8.0, vertical: 8.0),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              e,
+                                            ),
+                                            40.vGap,
+                                            Text(
+                                              "No Ideas saved",
+                                              style:
+                                                  context.textTheme.bodySmall,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                ],
+                                ),
                               ),
                             ),
                           ],
                         ),
-                      ),
-                    ),
+                      );
+                    }
+                  },
+                  (error) => Center(
+                    child: Text(error.toString()),
                   ),
-                ],
-              ),
+                );
+              },
             ),
           ],
         ),
