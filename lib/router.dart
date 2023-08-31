@@ -1,5 +1,8 @@
 import 'package:decor_ride/app/theme_extension.dart';
 import 'package:decor_ride/common/widgets/bottom_nav.dart';
+import 'package:decor_ride/features/ar_and_products/presentation/screens/ar_main_view.dart';
+import 'package:decor_ride/features/ar_and_products/presentation/screens/category_products_screen.dart';
+import 'package:decor_ride/features/ar_and_products/presentation/screens/product_categories_screen.dart';
 import 'package:decor_ride/features/auth/presentation/screens/email_screen.dart';
 import 'package:decor_ride/features/auth/presentation/screens/password_screen.dart';
 import 'package:decor_ride/features/auth/presentation/screens/personal_details.dart';
@@ -11,9 +14,6 @@ import 'package:decor_ride/features/ideabook/presentation/screens/ideabook_scree
 import 'package:decor_ride/features/notifications/presentation/screens/notifications_screen.dart';
 import 'package:decor_ride/features/profile/presentation/screens/profile_screen.dart';
 import 'package:decor_ride/homescreen.dart';
-import 'package:decor_ride/presentation/screens/product_listing/category_products_screen.dart';
-import 'package:decor_ride/presentation/screens/product_listing/product_categories_screen.dart';
-import 'package:decor_ride/screens/place_object.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -95,17 +95,18 @@ final router = GoRouter(
               builder: (context, state) => const CreateIdeabookScreen(),
             ),
             GoRoute(
-                parentNavigatorKey: _rootNavigatorKey,
-                path: 'ideabook_details/:ideabookId',
-                name: 'ideabookDetails',
-                builder: (context, state) {
-                  GetIdeabookEntity ideabookEntity =
-                      state.extra as GetIdeabookEntity;
-                  return IdeabookDetailsScreen(
-                    ideabookEntity: ideabookEntity,
-                    ideabookId: state.pathParameters['ideabookId']!,
-                  );
-                }),
+              parentNavigatorKey: _rootNavigatorKey,
+              path: 'ideabook_details/:ideabookId',
+              name: 'ideabookDetails',
+              builder: (context, state) {
+                GetIdeabookEntity ideabookEntity =
+                    state.extra as GetIdeabookEntity;
+                return IdeabookDetailsScreen(
+                  ideabookEntity: ideabookEntity,
+                  ideabookId: state.pathParameters['ideabookId']!,
+                );
+              },
+            ),
           ],
         ),
         GoRoute(
@@ -115,10 +116,25 @@ final router = GoRouter(
         ),
       ],
     ),
-    // GoRoute(
-    //   path: '/signup',
-    //   builder: (context, state) => const SignUp(),
-    // ),
+    GoRoute(
+      parentNavigatorKey: _rootNavigatorKey,
+      path: '/ar_main_view',
+      name: 'arMainView',
+      builder: (context, state) => const ARMainView(),
+    ),
+    GoRoute(
+      parentNavigatorKey: _rootNavigatorKey,
+      path: '/product_categories_screen',
+      builder: (context, state) => const ProductCategoriesScreen(),
+    ),
+    GoRoute(
+      parentNavigatorKey: _rootNavigatorKey,
+      path: '/category_products_screen/:categoryTag',
+      name: 'category_products_screen',
+      builder: (context, state) => CategoryProductsScreen(
+        categoryTag: state.pathParameters['categoryTag']!,
+      ),
+    ),
     GoRoute(
       parentNavigatorKey: _rootNavigatorKey,
       path: '/welcome',
@@ -140,27 +156,6 @@ final router = GoRouter(
       parentNavigatorKey: _rootNavigatorKey,
       path: '/personal_details',
       builder: (context, state) => const PersonalDetailsScreen(),
-    ),
-    GoRoute(
-      path: '/',
-      builder: (context, state) => HomeScreen(),
-      routes: [
-        GoRoute(
-          path: 'place_object',
-          builder: (context, state) => const PlaceObjectScreen(),
-        ),
-      ],
-    ),
-    GoRoute(
-      path: '/product_categories_screen',
-      builder: (context, state) => const ProductCategoriesScreen(),
-    ),
-    GoRoute(
-      path: '/category_products_screen/:categoryTag',
-      name: 'category_products_screen',
-      builder: (context, state) => CategoryProductsScreen(
-        categoryTag: state.pathParameters['categoryTag']!,
-      ),
     ),
   ],
 );

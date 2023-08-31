@@ -34,7 +34,6 @@ class IdeabookDetailsScreen extends HookConsumerWidget {
                   top: false,
                   sliver: SliverAppBar(
                     toolbarHeight: 100.0,
-                    // expandedHeight: 180.0,
                     title:
                         SliverAppbarRichTitle(ideabookEntity: ideabookEntity),
                     automaticallyImplyLeading: false,
