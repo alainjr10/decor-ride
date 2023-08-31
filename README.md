@@ -49,7 +49,9 @@ Make sure your code is well-documented and easy to understand.
 
 - Be respectful and constructive when providing feedback on others' contributions.
 
-- If you have any questions or need further assistance, please contact the maintainers at Email
+- If you have any questions or need further assistance, please contact the maintainers at Email <span id="badges"><a href="mailto:njokomalain@gmail.com">
+    <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail Badge"/>
+  </a> </span>
 
 # Contributors
 
