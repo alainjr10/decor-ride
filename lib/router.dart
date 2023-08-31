@@ -4,7 +4,9 @@ import 'package:decor_ride/features/auth/presentation/screens/email_screen.dart'
 import 'package:decor_ride/features/auth/presentation/screens/password_screen.dart';
 import 'package:decor_ride/features/auth/presentation/screens/personal_details.dart';
 import 'package:decor_ride/features/auth/presentation/screens/welcome_screen.dart';
+import 'package:decor_ride/features/ideabook/domain/entities/get_ideabook_entity.dart';
 import 'package:decor_ride/features/ideabook/presentation/screens/create_ideabook.dart';
+import 'package:decor_ride/features/ideabook/presentation/screens/ideabook_details_screen.dart';
 import 'package:decor_ride/features/ideabook/presentation/screens/ideabook_screen.dart';
 import 'package:decor_ride/features/notifications/presentation/screens/notifications_screen.dart';
 import 'package:decor_ride/features/profile/presentation/screens/profile_screen.dart';
@@ -92,6 +94,18 @@ final router = GoRouter(
               name: 'createIdeabook',
               builder: (context, state) => const CreateIdeabookScreen(),
             ),
+            GoRoute(
+                parentNavigatorKey: _rootNavigatorKey,
+                path: 'ideabook_details/:ideabookId',
+                name: 'ideabookDetails',
+                builder: (context, state) {
+                  GetIdeabookEntity ideabookEntity =
+                      state.extra as GetIdeabookEntity;
+                  return IdeabookDetailsScreen(
+                    ideabookEntity: ideabookEntity,
+                    ideabookId: state.pathParameters['ideabookId']!,
+                  );
+                }),
           ],
         ),
         GoRoute(

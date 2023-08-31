@@ -4,12 +4,14 @@ class GetIdeabookEntity {
   final String ideabookName;
   final String ideabookDescription;
   final bool ideabookPrivate;
+  final String ideabookId;
   final List<IdeaModel>? ideas;
 
   GetIdeabookEntity({
     required this.ideabookName,
     required this.ideabookDescription,
     required this.ideabookPrivate,
+    required this.ideabookId,
     this.ideas,
   });
 
@@ -19,6 +21,7 @@ class GetIdeabookEntity {
       ideabookName: map['ideabookName'],
       ideabookDescription: map['ideabookDescription'],
       ideabookPrivate: map['ideabookPrivate'],
+      ideabookId: map['ideabookId'],
       ideas: map['ideas'] != null
           ? List<IdeaModel>.from(map['ideas'].map((x) => IdeaModel.fromMap(x)))
           : [],
@@ -30,6 +33,7 @@ class GetIdeabookEntity {
       'ideabookName': ideabookName,
       'ideabookDescription': ideabookDescription,
       'ideabookPrivate': ideabookPrivate,
+      'ideabookId': ideabookId,
       'ideas':
           ideas != null ? List<dynamic>.from(ideas!.map((x) => x.toMap())) : [],
     };

@@ -50,6 +50,7 @@ class IdeabookFirestoreSourceImpl implements IdeabookFirestore {
         ideabookName: ideabook.ideabookName,
         ideabookDescription: ideabook.ideabookDescription,
         ideabookPrivate: ideabook.ideabookPrivate,
+        ideabookId: ideabook.ideabookId,
         ideas: [],
       );
       return left(getIdeabookEntity);

@@ -64,6 +64,7 @@ flutter:
     - assets/furniture_assets/
     - assets/3d_models/
     - assets/3d_models/gltf/
+    - assets/my_ideas_listtile_assets/
     - assets/
     - assets/AndroidRobot.gif
     - assets/ArcticFox.gif

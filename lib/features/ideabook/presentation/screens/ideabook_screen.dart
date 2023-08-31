@@ -99,49 +99,64 @@ class IdeaBook extends ConsumerWidget {
                             childAspectRatio: (1 / 1.3),
                             children: <Widget>[
                               ...ideabooks.map(
-                                (e) => SizedBox(
-                                  height: 300.0,
-                                  width: 140.0,
-                                  child: Card(
-                                    elevation: 2.0,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(4.0),
-                                    ),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Container(
-                                          height: 120.0,
-                                          decoration: BoxDecoration(
-                                            color: context.colorScheme.surface,
-                                            // borderRadius: BorderRadius.circular(.0),
+                                (e) => InkWell(
+                                  onTap: () {
+                                    // Navigator.push(context,
+                                    //     MaterialPageRoute(builder: (context) {
+                                    //   return SelectSeatScreen();
+                                    // }));
+                                    // context.push to ideabook details screen with id and getideabookentity
+                                    context.push(
+                                      '/ideabook/ideabook_details/${e.ideabookId}',
+                                      extra: e,
+                                    );
+                                  },
+                                  child: SizedBox(
+                                    height: 300.0,
+                                    width: 140.0,
+                                    child: Card(
+                                      elevation: 2.0,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(4.0),
+                                      ),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            height: 120.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  context.colorScheme.surface,
+                                              // borderRadius: BorderRadius.circular(.0),
+                                            ),
                                           ),
-                                        ),
-                                        8.vGap,
-                                        Padding(
-                                          padding: const EdgeInsets.symmetric(
-                                              horizontal: 8.0, vertical: 8.0),
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                e.ideabookName,
-                                              ),
-                                              40.vGap,
-                                              Text(
-                                                e.ideas == null ||
-                                                        e.ideas!.isEmpty
-                                                    ? "No Ideas saved"
-                                                    : "${e.ideas!.length} Ideas",
-                                                style:
-                                                    context.textTheme.bodySmall,
-                                              ),
-                                            ],
+                                          8.vGap,
+                                          Padding(
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 8.0, vertical: 8.0),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  e.ideabookName,
+                                                ),
+                                                40.vGap,
+                                                Text(
+                                                  e.ideas == null ||
+                                                          e.ideas!.isEmpty
+                                                      ? "No Ideas saved"
+                                                      : "${e.ideas!.length} Ideas",
+                                                  style: context
+                                                      .textTheme.bodySmall,
+                                                ),
+                                              ],
+                                            ),
                                           ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
