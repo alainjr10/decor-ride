@@ -17,7 +17,7 @@ At the moment, this is still a starter project with a majority of features still
 
 # How to try out AR View
 Given that that was the main goal of this application, we focused on that first, while creating and adding more as time goes on. To try out the AR  View, you can either
-1. -  Click on the > Demo AR View `Demo AR View` from the homescreen
+1. -  Click on the `Demo AR View` from the homescreen
     - Click on the `Add` Button on the bottom right, and then proceed to select an item from the available items.
     - Follow the onscreen directions to scan the environment and then place your product on your environment when  scanning is complete. ![Decorride homescreen](assets/doc_assets/Screenshot_20230831-161833-min.png)
 
@@ -55,3 +55,6 @@ Make sure your code is well-documented and easy to understand.
 
 
 # You can connect with me 
+![Medium](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white)
+
+
