@@ -19,7 +19,9 @@ At the moment, this is still a starter project with a majority of features still
 Given that that was the main goal of this application, we focused on that first, while creating and adding more as time goes on. To try out the AR  View, you can either
 1. -  Click on the `Demo AR View` from the homescreen
     - Click on the `Add` Button on the bottom right, and then proceed to select an item from the available items.
-    - Follow the onscreen directions to scan the environment and then place your product on your environment when  scanning is complete. ![Decorride homescreen](assets/doc_assets/Screenshot_20230831-161833-min.png)
+    - Follow the onscreen directions to scan the environment and then place your product on your environment when  scanning is complete. 
+    <img src="assets/doc_assets/Screenshot_20230831-161833-min.png" width="220" />
+    <!-- ![Decorride homescreen](assets/doc_assets/Screenshot_20230831-161833-min.png) -->
 
  OR
 
@@ -27,12 +29,20 @@ Given that that was the main goal of this application, we focused on that first,
     - Create an ideabook
     -  On the ideabook, click on the Camera icon to open AR View
     - Add products from the list and place on your virtual environment as stated in step 3 from option 1 above
-    |   |  |  |
-| ------------- | ------------- |  ----------- |
-| ![Ideabooks screen](assets/doc_assets/Screenshot_20230831-161846-min.png) | ![Create ideabook](assets/doc_assets/Screenshot_20230831-161853-min.png) | ![Ideabook details screen](assets/doc_assets/Screenshot_20230831-161904-min.png)  |  ![Scan environment](assets/doc_assets/Screenshot_20230831-161934-min.png)  |
-| Content Cell  | Content Cell  |
-     | 
-     | ![Product categories](assets/doc_assets/Screenshot_20230831-161949-min.png) | ![Products](assets/doc_assets/Screenshot_20230831-162014-min.png) ![AR detected surface](assets/doc_assets/Screenshot_20230831-162126-min.png) ![Place object](assets/doc_assets/Screenshot_20230831-163204-min.png)
+ 
+ <!-- ![Ideabooks screen](assets/doc_assets/Screenshot_20230831-161846-min.png)  ![Create ideabook](assets/doc_assets/Screenshot_20230831-161853-min.png) | ![Ideabook details screen](assets/doc_assets/Screenshot_20230831-161904-min.png)  |  ![Scan environment](assets/doc_assets/Screenshot_20230831-161934-min.png)  
+ ![Product categories](assets/doc_assets/Screenshot_20230831-161949-min.png) | ![Products](assets/doc_assets/Screenshot_20230831-162014-min.png) ![AR detected surface](assets/doc_assets/Screenshot_20230831-162126-min.png) ![Place object](assets/doc_assets/Screenshot_20230831-163204-min.png) -->
+ 
+<p float="left">
+  <img src="assets/doc_assets/Screenshot_20230831-161846-min.png" width="220" />
+  <img src="assets/doc_assets/Screenshot_20230831-161853-min.png" width="220" /> 
+  <img src="assets/doc_assets/Screenshot_20230831-161904-min.png" width="220" />
+  <img src="assets/doc_assets/Screenshot_20230831-161934-min.png" width="220" />
+  <img src="assets/doc_assets/Screenshot_20230831-161949-min.png" width="220" /> 
+  <img src="assets/doc_assets/Screenshot_20230831-162014-min.png" width="220" />
+  <img src="assets/doc_assets/Screenshot_20230831-162126-min.png" width="220" />
+  <img src="assets/doc_assets/Screenshot_20230831-163204-min.png" width="220" />
+</p>
     - Last screenshot shows the object i just placed. Sorry my space is small  😇. Will get a much better demo with future updates
 
 
@@ -42,12 +52,6 @@ Given that that was the main goal of this application, we focused on that first,
 - launch the app using `flutter run`
 - Create an account using a test email is you want, and start trying out the app
 
-<p float="left">
-  <img src="assets/doc_assets/Screenshot_20230831-161846-min.png" width="180" />
-  <img src="assets/doc_assets/Screenshot_20230831-161853-min.png" width="180" /> 
-  <img src="assets/doc_assets/Screenshot_20230831-161904-min.png" width="180" />
-  <img src="assets/doc_assets/Screenshot_20230831-161934-min.png" width="180" />
-</p>
 
 # Contributing
 We welcome contributions from the community to enhance Decorride. There's no official guide for contributing yet. However, If you're interested in contributing, make sure to;
