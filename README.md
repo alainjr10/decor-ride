@@ -66,3 +66,11 @@ Make sure your code is well-documented and easy to understand.
     <img src="https://img.shields.io/badge/Twitter-blue?style=for-the-badge&logo=twitter&logoColor=white" alt="Twitter Badge"/>
   </a>
 </div>
+
+## 📈 GitHub Stats 
+
+[![Alain's github stats](https://github-readme-stats.vercel.app/api?username=alainjr10)](https://github.com/alainjr10)
+
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=alainjr10&layout=compact)](https://github.com/alainjr10)
+
+[![Visitors](https://visitor-badge.glitch.me/badge?page_id=alainjr10.alainjr10)](https://www.yushi.dev/)
