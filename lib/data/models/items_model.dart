@@ -1,6 +1,6 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+// import 'package:freezed_annotation/freezed_annotation.dart';
 
-@freezed
+// @freezed
 class ProductCategoryModel {
   final String categoryName;
   final String categoryImage;

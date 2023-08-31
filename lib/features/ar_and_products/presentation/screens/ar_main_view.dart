@@ -126,7 +126,7 @@ class _ARMainViewState extends State<ARMainView> {
                     ),
                     InkWell(
                       onTap: () async {
-                        arSessionManager!.dispose();
+                        // arSessionManager!.dispose();
                         context
                             .push<String>('/product_categories_screen')
                             .then((value) {
@@ -259,6 +259,7 @@ class _ARMainViewState extends State<ARMainView> {
         ARPlaneAnchor(transformation: singleHitTestResult.worldTransform);
     bool? didAddAnchor = await arAnchorManager!.addAnchor(newAnchor);
     if (didAddAnchor!) {
+      "adding anchor".log();
       anchors.add(newAnchor);
       // Add note to anchor
       var newNode = ARNode(
@@ -271,12 +272,13 @@ class _ARMainViewState extends State<ARMainView> {
         position: math64.Vector3(0.0, 0.0, 0.0),
         rotation: math64.Vector4(1.0, 0.0, 0.0, 0.0),
       );
-
+      "about to add node to anchor".log();
       bool? didAddNodeToAnchor = await arObjectManager!.addNode(
         newNode,
         planeAnchor: newAnchor,
       );
       if (didAddNodeToAnchor!) {
+        "added new node".log();
         nodes.add(newNode);
         selectedNodeUrl = null;
       } else {

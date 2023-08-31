@@ -83,7 +83,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       _currentIndex = index;
     });
     if (index == 3) {
-      context.push('/user-profile');
+      context.go('/user-profile');
     } else {
       router.go(location);
     }
