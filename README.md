@@ -27,7 +27,8 @@ Given that that was the main goal of this application, we focused on that first,
     - Create an ideabook
     -  On the ideabook, click on the Camera icon to open AR View
     - Add products from the list and place on your virtual environment as stated in step 3 from option 1 above
-    ![Ideabooks screen](assets/doc_assets/Screenshot_20230831-161846-min.png) ![Create ideabook](assets/doc_assets/Screenshot_20230831-161853-min.png) ![Ideabook details screen](assets/doc_assets/Screenshot_20230831-161904-min.png) ![Scan environment](assets/doc_assets/Screenshot_20230831-161934-min.png) ![Product categories](assets/doc_assets/Screenshot_20230831-161949-min.png) ![Products](assets/doc_assets/Screenshot_20230831-162014-min.png) ![AR detected surface](assets/doc_assets/Screenshot_20230831-162126-min.png) ![Place object](assets/doc_assets/Screenshot_20230831-163204-min.png)
+    ![Ideabooks screen](assets/doc_assets/Screenshot_20230831-161846-min.png) | ![Create ideabook](assets/doc_assets/Screenshot_20230831-161853-min.png) | ![Ideabook details screen](assets/doc_assets/Screenshot_20230831-161904-min.png) 
+    ![Scan environment](assets/doc_assets/Screenshot_20230831-161934-min.png) | ![Product categories](assets/doc_assets/Screenshot_20230831-161949-min.png) | ![Products](assets/doc_assets/Screenshot_20230831-162014-min.png) ![AR detected surface](assets/doc_assets/Screenshot_20230831-162126-min.png) ![Place object](assets/doc_assets/Screenshot_20230831-163204-min.png)
     - Last screenshot shows the object i just placed. Sorry my space is small  😇. Will get a much better demo with future updates
 
 
@@ -36,6 +37,13 @@ Given that that was the main goal of this application, we focused on that first,
 - Get packages using `flutter pub get`
 - launch the app using `flutter run`
 - Create an account using a test email is you want, and start trying out the app
+
+<p float="left">
+  <img src="assets/doc_assets/Screenshot_20230831-161846-min.png" width="240" />
+  <img src="assets/doc_assets/Screenshot_20230831-161853-min.png" width="240" /> 
+  <img src="assets/doc_assets/Screenshot_20230831-161904-min.png" width="240" />
+  <img src="assets/doc_assets/Screenshot_20230831-161934-min.png" width="240" />
+</p>
 
 # Contributing
 We welcome contributions from the community to enhance Decorride. There's no official guide for contributing yet. However, If you're interested in contributing, make sure to;
@@ -67,10 +75,3 @@ Make sure your code is well-documented and easy to understand.
   </a>
 </div>
 
-## 📈 GitHub Stats 
-
-[![Alain's github stats](https://github-readme-stats.vercel.app/api?username=alainjr10)](https://github.com/alainjr10)
-
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=alainjr10&layout=compact)](https://github.com/alainjr10)
-
-[![Visitors](https://visitor-badge.glitch.me/badge?page_id=alainjr10.alainjr10)](https://www.yushi.dev/)
