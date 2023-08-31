@@ -20,7 +20,7 @@ Given that that was the main goal of this application, we focused on that first,
 1. -  Click on the `Demo AR View` from the homescreen
     - Click on the `Add` Button on the bottom right, and then proceed to select an item from the available items.
     - Follow the onscreen directions to scan the environment and then place your product on your environment when  scanning is complete. 
-    <img src="assets/doc_assets/Screenshot_20230831-161833-min.png" width="220" />
+    <img src="assets/doc_assets/Screenshot_20230831-161833-min.png" width="250" />
     <!-- ![Decorride homescreen](assets/doc_assets/Screenshot_20230831-161833-min.png) -->
 
  OR
@@ -34,14 +34,14 @@ Given that that was the main goal of this application, we focused on that first,
  ![Product categories](assets/doc_assets/Screenshot_20230831-161949-min.png) | ![Products](assets/doc_assets/Screenshot_20230831-162014-min.png) ![AR detected surface](assets/doc_assets/Screenshot_20230831-162126-min.png) ![Place object](assets/doc_assets/Screenshot_20230831-163204-min.png) -->
  
 <p float="left">
-  <img src="assets/doc_assets/Screenshot_20230831-161846-min.png" width="220" />
-  <img src="assets/doc_assets/Screenshot_20230831-161853-min.png" width="220" /> 
-  <img src="assets/doc_assets/Screenshot_20230831-161904-min.png" width="220" />
-  <img src="assets/doc_assets/Screenshot_20230831-161934-min.png" width="220" />
-  <img src="assets/doc_assets/Screenshot_20230831-161949-min.png" width="220" /> 
-  <img src="assets/doc_assets/Screenshot_20230831-162014-min.png" width="220" />
-  <img src="assets/doc_assets/Screenshot_20230831-162126-min.png" width="220" />
-  <img src="assets/doc_assets/Screenshot_20230831-163204-min.png" width="220" />
+  <img src="assets/doc_assets/Screenshot_20230831-161846-min.png" width="245" />
+  <img src="assets/doc_assets/Screenshot_20230831-161853-min.png" width="245" /> 
+  <img src="assets/doc_assets/Screenshot_20230831-161904-min.png" width="245" />
+  <img src="assets/doc_assets/Screenshot_20230831-161934-min.png" width="245" />
+  <img src="assets/doc_assets/Screenshot_20230831-161949-min.png" width="245" /> 
+  <img src="assets/doc_assets/Screenshot_20230831-162014-min.png" width="245" />
+  <img src="assets/doc_assets/Screenshot_20230831-162126-min.png" width="245" />
+  <img src="assets/doc_assets/Screenshot_20230831-163204-min.png" width="245" />
 </p>
     - Last screenshot shows the object i just placed. Sorry my space is small  😇. Will get a much better demo with future updates
 
