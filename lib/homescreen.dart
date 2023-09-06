@@ -28,32 +28,32 @@ class HomeScreen extends ConsumerWidget {
             textAlign: TextAlign.center,
           ),
           Container(
-            width: 50.0,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Colors.blue,
-                  Colors.orange,
-                ],
+              width: 50.0,
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Colors.blue,
+                    Colors.orange,
+                  ],
+                ),
+                shape: BoxShape.circle,
               ),
-              shape: BoxShape.circle,
-            ),
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                padding: EdgeInsets.all(0.0),
-                backgroundColor: Colors.transparent,
-                shadowColor: Colors.transparent,
-              ),
-              onPressed: () {
-                context.push('/ar_main_view');
-              },
-              child: Icon(
-                Icons.arrow_forward_ios,
-                color: Colors.white,
-                size: 20.0,
-              ),
-            )
-          ),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.all(0.0),
+                  backgroundColor: Colors.transparent,
+                  shadowColor: Colors.transparent,
+                ),
+                onPressed: () {
+                  // context.push('/ar_main_view');
+                  context.push('/shopping_cart_screen');
+                },
+                child: const Icon(
+                  Icons.arrow_forward_ios,
+                  color: Colors.white,
+                  size: 20.0,
+                ),
+              )),
           16.vGap,
           TextButton(
             onPressed: () {
