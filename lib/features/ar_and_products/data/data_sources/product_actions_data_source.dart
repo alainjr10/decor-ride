@@ -24,7 +24,7 @@ class ProductActionsDataSource {
     try {
       final cartItem = await cartRef.doc(productId).get();
       if (cartItem.exists) {
-        return right('Product already exists in cart');
+        return left('Product already exists in cart');
       } else {
         await cartRef.doc(productId).set({
           'productId': productId,

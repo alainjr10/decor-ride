@@ -2,7 +2,9 @@ import 'package:decor_ride/app/theme_extension.dart';
 import 'package:decor_ride/common/widgets/bottom_nav.dart';
 import 'package:decor_ride/features/ar_and_products/presentation/screens/ar_main_view.dart';
 import 'package:decor_ride/features/ar_and_products/presentation/screens/category_products_screen.dart';
+import 'package:decor_ride/features/ar_and_products/presentation/screens/checkout_screen.dart';
 import 'package:decor_ride/features/ar_and_products/presentation/screens/product_categories_screen.dart';
+import 'package:decor_ride/features/ar_and_products/presentation/screens/shopping_cart_screen.dart';
 import 'package:decor_ride/features/auth/presentation/screens/email_screen.dart';
 import 'package:decor_ride/features/auth/presentation/screens/password_screen.dart';
 import 'package:decor_ride/features/auth/presentation/screens/personal_details.dart';
@@ -69,8 +71,6 @@ final router = GoRouter(
             User? firebaseUser = FirebaseAuth.instance.currentUser;
             if (firebaseUser != null) {
               "Redirecting now......".log();
-              debugPrint("Debug print Redirecting now......");
-              print("Print Redirecting now......");
               return null;
             }
             if (firebaseUser == null) {
@@ -136,6 +136,18 @@ final router = GoRouter(
       builder: (context, state) => CategoryProductsScreen(
         categoryTag: state.pathParameters['categoryTag']!,
       ),
+    ),
+    GoRoute(
+      parentNavigatorKey: _rootNavigatorKey,
+      path: '/shopping_cart_screen',
+      name: 'shoppingCartScreen',
+      builder: (context, state) => const ShoppingCartScreen(),
+    ),
+    GoRoute(
+      parentNavigatorKey: _rootNavigatorKey,
+      path: '/checkout_screen',
+      name: 'checkoutScreen',
+      builder: (context, state) => const CheckoutScreen(),
     ),
     GoRoute(
       parentNavigatorKey: _rootNavigatorKey,

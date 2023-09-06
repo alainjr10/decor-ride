@@ -28,7 +28,11 @@ class ProductActionsNotifier extends StateNotifier<ProductActionsState> {
     state = const ProductActionsState.addingToCart();
     final response = await productActionsRepo.addProductToCart(productId);
     state = response.fold(
-      (success) => const ProductActionsState.addedToCart(),
+      (success) {
+        return success == 'Product already exists in cart'
+            ? const ProductActionsState.productAlreadyInCart()
+            : const ProductActionsState.addedToCart();
+      },
       (failure) => const ProductActionsState.addToCartFailed(),
     );
   }

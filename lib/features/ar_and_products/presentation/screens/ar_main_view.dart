@@ -12,7 +12,9 @@ import 'package:ar_flutter_plugin/models/ar_anchor.dart';
 import 'package:ar_flutter_plugin/models/ar_hittest_result.dart';
 import 'package:ar_flutter_plugin/models/ar_node.dart';
 import 'package:decor_ride/app/theme_extension.dart';
+import 'package:decor_ride/common/widgets/custom_elevated_button.dart';
 import 'package:decor_ride/features/ar_and_products/presentation/providers/product_actions_provider.dart';
+import 'package:decor_ride/features/ar_and_products/presentation/providers/product_actions_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -36,6 +38,7 @@ class _ARMainViewState extends ConsumerState<ARMainView> {
 
   String? selectedNodeUrl;
   String? selectedProductId;
+  String? selectedProductImage;
 
   List<ARNode> nodes = [];
   List<ARAnchor> anchors = [];
@@ -48,6 +51,88 @@ class _ARMainViewState extends ConsumerState<ARMainView> {
 
   @override
   Widget build(BuildContext context) {
+    ref.listen<ProductActionsState>(
+      productActionsNotifierProvider,
+      (previous, next) {
+        next.maybeWhen(
+          orElse: () {},
+          addedToCart: () {
+            showDialog(
+              context: context,
+              builder: (context) {
+                return Dialog(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 12.0, vertical: 16.0),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Align(
+                          alignment: Alignment.topLeft,
+                          child: IconButton(
+                            onPressed: () {
+                              context.pop();
+                            },
+                            icon: Icon(
+                              Icons.close,
+                              color: context.colorScheme.onPrimary,
+                            ),
+                            iconSize: 20.0,
+                          ),
+                        ),
+                        4.vGap,
+                        Image.network(
+                          selectedProductImage!,
+                          width: 120.0,
+                          height: 120.0,
+                          fit: BoxFit.cover,
+                          filterQuality: FilterQuality.high,
+                        ),
+                        16.vGap,
+                        Text(
+                          'This item has been successfully added to your cart!',
+                          style: context.textTheme.bodyLarge,
+                          textAlign: TextAlign.center,
+                        ),
+                        16.vGap,
+                        TextButton(
+                          onPressed: () {
+                            context.push('/shopping_cart_screen');
+                          },
+                          child: Text(
+                            'VIEW CART',
+                            style: context.textTheme.bodyLarge!
+                                .copyWith(color: context.colorScheme.primary),
+                          ),
+                        ),
+                        4.vGap,
+                        CustomElevatedButton(
+                          text: 'CHECK OUT NOW',
+                          onPressed: () {
+                            context.push('/checkout_screen');
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
+            );
+          },
+          productAlreadyInCart: () {
+            Fluttertoast.showToast(
+              msg: "Product already in cart",
+              toastLength: Toast.LENGTH_LONG,
+              gravity: ToastGravity.BOTTOM,
+              timeInSecForIosWeb: 1,
+              backgroundColor: context.theme.colorScheme.secondary,
+              textColor: context.theme.colorScheme.onSecondary,
+              fontSize: 16.0,
+            );
+          },
+        );
+      },
+    );
     return Scaffold(
       // appBar: AppBar(
       //   title: const Text('AR Main View'),
@@ -81,7 +166,9 @@ class _ARMainViewState extends ConsumerState<ARMainView> {
                   badgeColor: context.theme.colorScheme.primary,
                 ),
                 child: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.push('/shopping_cart_screen');
+                  },
                   icon: const Icon(
                     Icons.shopping_cart_rounded,
                     color: Colors.white,
@@ -304,6 +391,7 @@ class _ARMainViewState extends ConsumerState<ARMainView> {
                                 .then((value) {
                               selectedNodeUrl = value!['modelUrl'];
                               selectedProductId = value['productId'];
+                              selectedProductImage = value['productImage'];
                               log("Selected node url is $selectedNodeUrl");
                             });
                           },
@@ -416,6 +504,8 @@ class _ARMainViewState extends ConsumerState<ARMainView> {
           orElse: () => ARNode(type: NodeType.webGLB, uri: ""),
         );
     selectedProductId = selectedNode.data!['nodeId'];
+    selectedProductImage = selectedNode.data!['productImage'];
+    selectedNodeUrl = selectedNode.uri;
     "\n data additional data for the selected node is ${selectedNode.data} \n"
         .log();
     if (number > 0 && ref.watch(nodeIsSelectedProvider) == false) {
@@ -465,6 +555,7 @@ class _ARMainViewState extends ConsumerState<ARMainView> {
         rotation: math64.Vector4(1.0, 0.0, 0.0, 0.0),
         data: {
           'nodeId': selectedProductId,
+          'productImage': selectedProductImage,
         },
       );
       "about to add node to anchor".log();

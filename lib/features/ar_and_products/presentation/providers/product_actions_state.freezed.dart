@@ -21,6 +21,7 @@ mixin _$ProductActionsState {
     required TResult Function() initial,
     required TResult Function() addingToCart,
     required TResult Function() addedToCart,
+    required TResult Function() productAlreadyInCart,
     required TResult Function() addToCartFailed,
     required TResult Function() removingFromCart,
     required TResult Function() removedFromCart,
@@ -37,6 +38,7 @@ mixin _$ProductActionsState {
     TResult? Function()? initial,
     TResult? Function()? addingToCart,
     TResult? Function()? addedToCart,
+    TResult? Function()? productAlreadyInCart,
     TResult? Function()? addToCartFailed,
     TResult? Function()? removingFromCart,
     TResult? Function()? removedFromCart,
@@ -53,6 +55,7 @@ mixin _$ProductActionsState {
     TResult Function()? initial,
     TResult Function()? addingToCart,
     TResult Function()? addedToCart,
+    TResult Function()? productAlreadyInCart,
     TResult Function()? addToCartFailed,
     TResult Function()? removingFromCart,
     TResult Function()? removedFromCart,
@@ -70,6 +73,7 @@ mixin _$ProductActionsState {
     required TResult Function(_Initial value) initial,
     required TResult Function(_AddingToCart value) addingToCart,
     required TResult Function(_AddedToCart value) addedToCart,
+    required TResult Function(_ProductAlreadyInCart value) productAlreadyInCart,
     required TResult Function(_AddToCartFailed value) addToCartFailed,
     required TResult Function(_RemovingFromCart value) removingFromCart,
     required TResult Function(_RemovedFromCart value) removedFromCart,
@@ -86,6 +90,7 @@ mixin _$ProductActionsState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_AddingToCart value)? addingToCart,
     TResult? Function(_AddedToCart value)? addedToCart,
+    TResult? Function(_ProductAlreadyInCart value)? productAlreadyInCart,
     TResult? Function(_AddToCartFailed value)? addToCartFailed,
     TResult? Function(_RemovingFromCart value)? removingFromCart,
     TResult? Function(_RemovedFromCart value)? removedFromCart,
@@ -102,6 +107,7 @@ mixin _$ProductActionsState {
     TResult Function(_Initial value)? initial,
     TResult Function(_AddingToCart value)? addingToCart,
     TResult Function(_AddedToCart value)? addedToCart,
+    TResult Function(_ProductAlreadyInCart value)? productAlreadyInCart,
     TResult Function(_AddToCartFailed value)? addToCartFailed,
     TResult Function(_RemovingFromCart value)? removingFromCart,
     TResult Function(_RemovedFromCart value)? removedFromCart,
@@ -180,6 +186,7 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
     required TResult Function() initial,
     required TResult Function() addingToCart,
     required TResult Function() addedToCart,
+    required TResult Function() productAlreadyInCart,
     required TResult Function() addToCartFailed,
     required TResult Function() removingFromCart,
     required TResult Function() removedFromCart,
@@ -199,6 +206,7 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? addingToCart,
     TResult? Function()? addedToCart,
+    TResult? Function()? productAlreadyInCart,
     TResult? Function()? addToCartFailed,
     TResult? Function()? removingFromCart,
     TResult? Function()? removedFromCart,
@@ -218,6 +226,7 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
     TResult Function()? initial,
     TResult Function()? addingToCart,
     TResult Function()? addedToCart,
+    TResult Function()? productAlreadyInCart,
     TResult Function()? addToCartFailed,
     TResult Function()? removingFromCart,
     TResult Function()? removedFromCart,
@@ -241,6 +250,7 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(_AddingToCart value) addingToCart,
     required TResult Function(_AddedToCart value) addedToCart,
+    required TResult Function(_ProductAlreadyInCart value) productAlreadyInCart,
     required TResult Function(_AddToCartFailed value) addToCartFailed,
     required TResult Function(_RemovingFromCart value) removingFromCart,
     required TResult Function(_RemovedFromCart value) removedFromCart,
@@ -260,6 +270,7 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_AddingToCart value)? addingToCart,
     TResult? Function(_AddedToCart value)? addedToCart,
+    TResult? Function(_ProductAlreadyInCart value)? productAlreadyInCart,
     TResult? Function(_AddToCartFailed value)? addToCartFailed,
     TResult? Function(_RemovingFromCart value)? removingFromCart,
     TResult? Function(_RemovedFromCart value)? removedFromCart,
@@ -279,6 +290,7 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_AddingToCart value)? addingToCart,
     TResult Function(_AddedToCart value)? addedToCart,
+    TResult Function(_ProductAlreadyInCart value)? productAlreadyInCart,
     TResult Function(_AddToCartFailed value)? addToCartFailed,
     TResult Function(_RemovingFromCart value)? removingFromCart,
     TResult Function(_RemovedFromCart value)? removedFromCart,
@@ -349,6 +361,7 @@ class _$_AddingToCart with DiagnosticableTreeMixin implements _AddingToCart {
     required TResult Function() initial,
     required TResult Function() addingToCart,
     required TResult Function() addedToCart,
+    required TResult Function() productAlreadyInCart,
     required TResult Function() addToCartFailed,
     required TResult Function() removingFromCart,
     required TResult Function() removedFromCart,
@@ -368,6 +381,7 @@ class _$_AddingToCart with DiagnosticableTreeMixin implements _AddingToCart {
     TResult? Function()? initial,
     TResult? Function()? addingToCart,
     TResult? Function()? addedToCart,
+    TResult? Function()? productAlreadyInCart,
     TResult? Function()? addToCartFailed,
     TResult? Function()? removingFromCart,
     TResult? Function()? removedFromCart,
@@ -387,6 +401,7 @@ class _$_AddingToCart with DiagnosticableTreeMixin implements _AddingToCart {
     TResult Function()? initial,
     TResult Function()? addingToCart,
     TResult Function()? addedToCart,
+    TResult Function()? productAlreadyInCart,
     TResult Function()? addToCartFailed,
     TResult Function()? removingFromCart,
     TResult Function()? removedFromCart,
@@ -410,6 +425,7 @@ class _$_AddingToCart with DiagnosticableTreeMixin implements _AddingToCart {
     required TResult Function(_Initial value) initial,
     required TResult Function(_AddingToCart value) addingToCart,
     required TResult Function(_AddedToCart value) addedToCart,
+    required TResult Function(_ProductAlreadyInCart value) productAlreadyInCart,
     required TResult Function(_AddToCartFailed value) addToCartFailed,
     required TResult Function(_RemovingFromCart value) removingFromCart,
     required TResult Function(_RemovedFromCart value) removedFromCart,
@@ -429,6 +445,7 @@ class _$_AddingToCart with DiagnosticableTreeMixin implements _AddingToCart {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_AddingToCart value)? addingToCart,
     TResult? Function(_AddedToCart value)? addedToCart,
+    TResult? Function(_ProductAlreadyInCart value)? productAlreadyInCart,
     TResult? Function(_AddToCartFailed value)? addToCartFailed,
     TResult? Function(_RemovingFromCart value)? removingFromCart,
     TResult? Function(_RemovedFromCart value)? removedFromCart,
@@ -448,6 +465,7 @@ class _$_AddingToCart with DiagnosticableTreeMixin implements _AddingToCart {
     TResult Function(_Initial value)? initial,
     TResult Function(_AddingToCart value)? addingToCart,
     TResult Function(_AddedToCart value)? addedToCart,
+    TResult Function(_ProductAlreadyInCart value)? productAlreadyInCart,
     TResult Function(_AddToCartFailed value)? addToCartFailed,
     TResult Function(_RemovingFromCart value)? removingFromCart,
     TResult Function(_RemovedFromCart value)? removedFromCart,
@@ -518,6 +536,7 @@ class _$_AddedToCart with DiagnosticableTreeMixin implements _AddedToCart {
     required TResult Function() initial,
     required TResult Function() addingToCart,
     required TResult Function() addedToCart,
+    required TResult Function() productAlreadyInCart,
     required TResult Function() addToCartFailed,
     required TResult Function() removingFromCart,
     required TResult Function() removedFromCart,
@@ -537,6 +556,7 @@ class _$_AddedToCart with DiagnosticableTreeMixin implements _AddedToCart {
     TResult? Function()? initial,
     TResult? Function()? addingToCart,
     TResult? Function()? addedToCart,
+    TResult? Function()? productAlreadyInCart,
     TResult? Function()? addToCartFailed,
     TResult? Function()? removingFromCart,
     TResult? Function()? removedFromCart,
@@ -556,6 +576,7 @@ class _$_AddedToCart with DiagnosticableTreeMixin implements _AddedToCart {
     TResult Function()? initial,
     TResult Function()? addingToCart,
     TResult Function()? addedToCart,
+    TResult Function()? productAlreadyInCart,
     TResult Function()? addToCartFailed,
     TResult Function()? removingFromCart,
     TResult Function()? removedFromCart,
@@ -579,6 +600,7 @@ class _$_AddedToCart with DiagnosticableTreeMixin implements _AddedToCart {
     required TResult Function(_Initial value) initial,
     required TResult Function(_AddingToCart value) addingToCart,
     required TResult Function(_AddedToCart value) addedToCart,
+    required TResult Function(_ProductAlreadyInCart value) productAlreadyInCart,
     required TResult Function(_AddToCartFailed value) addToCartFailed,
     required TResult Function(_RemovingFromCart value) removingFromCart,
     required TResult Function(_RemovedFromCart value) removedFromCart,
@@ -598,6 +620,7 @@ class _$_AddedToCart with DiagnosticableTreeMixin implements _AddedToCart {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_AddingToCart value)? addingToCart,
     TResult? Function(_AddedToCart value)? addedToCart,
+    TResult? Function(_ProductAlreadyInCart value)? productAlreadyInCart,
     TResult? Function(_AddToCartFailed value)? addToCartFailed,
     TResult? Function(_RemovingFromCart value)? removingFromCart,
     TResult? Function(_RemovedFromCart value)? removedFromCart,
@@ -617,6 +640,7 @@ class _$_AddedToCart with DiagnosticableTreeMixin implements _AddedToCart {
     TResult Function(_Initial value)? initial,
     TResult Function(_AddingToCart value)? addingToCart,
     TResult Function(_AddedToCart value)? addedToCart,
+    TResult Function(_ProductAlreadyInCart value)? productAlreadyInCart,
     TResult Function(_AddToCartFailed value)? addToCartFailed,
     TResult Function(_RemovingFromCart value)? removingFromCart,
     TResult Function(_RemovedFromCart value)? removedFromCart,
@@ -637,6 +661,183 @@ class _$_AddedToCart with DiagnosticableTreeMixin implements _AddedToCart {
 
 abstract class _AddedToCart implements ProductActionsState {
   const factory _AddedToCart() = _$_AddedToCart;
+}
+
+/// @nodoc
+abstract class _$$_ProductAlreadyInCartCopyWith<$Res> {
+  factory _$$_ProductAlreadyInCartCopyWith(_$_ProductAlreadyInCart value,
+          $Res Function(_$_ProductAlreadyInCart) then) =
+      __$$_ProductAlreadyInCartCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ProductAlreadyInCartCopyWithImpl<$Res>
+    extends _$ProductActionsStateCopyWithImpl<$Res, _$_ProductAlreadyInCart>
+    implements _$$_ProductAlreadyInCartCopyWith<$Res> {
+  __$$_ProductAlreadyInCartCopyWithImpl(_$_ProductAlreadyInCart _value,
+      $Res Function(_$_ProductAlreadyInCart) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_ProductAlreadyInCart
+    with DiagnosticableTreeMixin
+    implements _ProductAlreadyInCart {
+  const _$_ProductAlreadyInCart();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ProductActionsState.productAlreadyInCart()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty(
+        'type', 'ProductActionsState.productAlreadyInCart'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_ProductAlreadyInCart);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() addingToCart,
+    required TResult Function() addedToCart,
+    required TResult Function() productAlreadyInCart,
+    required TResult Function() addToCartFailed,
+    required TResult Function() removingFromCart,
+    required TResult Function() removedFromCart,
+    required TResult Function() removeFromCartFailed,
+    required TResult Function() updatingQuantity,
+    required TResult Function() updatedQuantity,
+    required TResult Function() updateQuantityFailed,
+    required TResult Function(int count) cartCount,
+    required TResult Function(String message) error,
+  }) {
+    return productAlreadyInCart();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? addingToCart,
+    TResult? Function()? addedToCart,
+    TResult? Function()? productAlreadyInCart,
+    TResult? Function()? addToCartFailed,
+    TResult? Function()? removingFromCart,
+    TResult? Function()? removedFromCart,
+    TResult? Function()? removeFromCartFailed,
+    TResult? Function()? updatingQuantity,
+    TResult? Function()? updatedQuantity,
+    TResult? Function()? updateQuantityFailed,
+    TResult? Function(int count)? cartCount,
+    TResult? Function(String message)? error,
+  }) {
+    return productAlreadyInCart?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? addingToCart,
+    TResult Function()? addedToCart,
+    TResult Function()? productAlreadyInCart,
+    TResult Function()? addToCartFailed,
+    TResult Function()? removingFromCart,
+    TResult Function()? removedFromCart,
+    TResult Function()? removeFromCartFailed,
+    TResult Function()? updatingQuantity,
+    TResult Function()? updatedQuantity,
+    TResult Function()? updateQuantityFailed,
+    TResult Function(int count)? cartCount,
+    TResult Function(String message)? error,
+    required TResult orElse(),
+  }) {
+    if (productAlreadyInCart != null) {
+      return productAlreadyInCart();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_AddingToCart value) addingToCart,
+    required TResult Function(_AddedToCart value) addedToCart,
+    required TResult Function(_ProductAlreadyInCart value) productAlreadyInCart,
+    required TResult Function(_AddToCartFailed value) addToCartFailed,
+    required TResult Function(_RemovingFromCart value) removingFromCart,
+    required TResult Function(_RemovedFromCart value) removedFromCart,
+    required TResult Function(_RemoveFromCartFailed value) removeFromCartFailed,
+    required TResult Function(_UpdatingQuantity value) updatingQuantity,
+    required TResult Function(_UpdatedQuantity value) updatedQuantity,
+    required TResult Function(_UpdateQuantityFailed value) updateQuantityFailed,
+    required TResult Function(_CartCount value) cartCount,
+    required TResult Function(_Error value) error,
+  }) {
+    return productAlreadyInCart(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_AddingToCart value)? addingToCart,
+    TResult? Function(_AddedToCart value)? addedToCart,
+    TResult? Function(_ProductAlreadyInCart value)? productAlreadyInCart,
+    TResult? Function(_AddToCartFailed value)? addToCartFailed,
+    TResult? Function(_RemovingFromCart value)? removingFromCart,
+    TResult? Function(_RemovedFromCart value)? removedFromCart,
+    TResult? Function(_RemoveFromCartFailed value)? removeFromCartFailed,
+    TResult? Function(_UpdatingQuantity value)? updatingQuantity,
+    TResult? Function(_UpdatedQuantity value)? updatedQuantity,
+    TResult? Function(_UpdateQuantityFailed value)? updateQuantityFailed,
+    TResult? Function(_CartCount value)? cartCount,
+    TResult? Function(_Error value)? error,
+  }) {
+    return productAlreadyInCart?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_AddingToCart value)? addingToCart,
+    TResult Function(_AddedToCart value)? addedToCart,
+    TResult Function(_ProductAlreadyInCart value)? productAlreadyInCart,
+    TResult Function(_AddToCartFailed value)? addToCartFailed,
+    TResult Function(_RemovingFromCart value)? removingFromCart,
+    TResult Function(_RemovedFromCart value)? removedFromCart,
+    TResult Function(_RemoveFromCartFailed value)? removeFromCartFailed,
+    TResult Function(_UpdatingQuantity value)? updatingQuantity,
+    TResult Function(_UpdatedQuantity value)? updatedQuantity,
+    TResult Function(_UpdateQuantityFailed value)? updateQuantityFailed,
+    TResult Function(_CartCount value)? cartCount,
+    TResult Function(_Error value)? error,
+    required TResult orElse(),
+  }) {
+    if (productAlreadyInCart != null) {
+      return productAlreadyInCart(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ProductAlreadyInCart implements ProductActionsState {
+  const factory _ProductAlreadyInCart() = _$_ProductAlreadyInCart;
 }
 
 /// @nodoc
@@ -689,6 +890,7 @@ class _$_AddToCartFailed
     required TResult Function() initial,
     required TResult Function() addingToCart,
     required TResult Function() addedToCart,
+    required TResult Function() productAlreadyInCart,
     required TResult Function() addToCartFailed,
     required TResult Function() removingFromCart,
     required TResult Function() removedFromCart,
@@ -708,6 +910,7 @@ class _$_AddToCartFailed
     TResult? Function()? initial,
     TResult? Function()? addingToCart,
     TResult? Function()? addedToCart,
+    TResult? Function()? productAlreadyInCart,
     TResult? Function()? addToCartFailed,
     TResult? Function()? removingFromCart,
     TResult? Function()? removedFromCart,
@@ -727,6 +930,7 @@ class _$_AddToCartFailed
     TResult Function()? initial,
     TResult Function()? addingToCart,
     TResult Function()? addedToCart,
+    TResult Function()? productAlreadyInCart,
     TResult Function()? addToCartFailed,
     TResult Function()? removingFromCart,
     TResult Function()? removedFromCart,
@@ -750,6 +954,7 @@ class _$_AddToCartFailed
     required TResult Function(_Initial value) initial,
     required TResult Function(_AddingToCart value) addingToCart,
     required TResult Function(_AddedToCart value) addedToCart,
+    required TResult Function(_ProductAlreadyInCart value) productAlreadyInCart,
     required TResult Function(_AddToCartFailed value) addToCartFailed,
     required TResult Function(_RemovingFromCart value) removingFromCart,
     required TResult Function(_RemovedFromCart value) removedFromCart,
@@ -769,6 +974,7 @@ class _$_AddToCartFailed
     TResult? Function(_Initial value)? initial,
     TResult? Function(_AddingToCart value)? addingToCart,
     TResult? Function(_AddedToCart value)? addedToCart,
+    TResult? Function(_ProductAlreadyInCart value)? productAlreadyInCart,
     TResult? Function(_AddToCartFailed value)? addToCartFailed,
     TResult? Function(_RemovingFromCart value)? removingFromCart,
     TResult? Function(_RemovedFromCart value)? removedFromCart,
@@ -788,6 +994,7 @@ class _$_AddToCartFailed
     TResult Function(_Initial value)? initial,
     TResult Function(_AddingToCart value)? addingToCart,
     TResult Function(_AddedToCart value)? addedToCart,
+    TResult Function(_ProductAlreadyInCart value)? productAlreadyInCart,
     TResult Function(_AddToCartFailed value)? addToCartFailed,
     TResult Function(_RemovingFromCart value)? removingFromCart,
     TResult Function(_RemovedFromCart value)? removedFromCart,
@@ -860,6 +1067,7 @@ class _$_RemovingFromCart
     required TResult Function() initial,
     required TResult Function() addingToCart,
     required TResult Function() addedToCart,
+    required TResult Function() productAlreadyInCart,
     required TResult Function() addToCartFailed,
     required TResult Function() removingFromCart,
     required TResult Function() removedFromCart,
@@ -879,6 +1087,7 @@ class _$_RemovingFromCart
     TResult? Function()? initial,
     TResult? Function()? addingToCart,
     TResult? Function()? addedToCart,
+    TResult? Function()? productAlreadyInCart,
     TResult? Function()? addToCartFailed,
     TResult? Function()? removingFromCart,
     TResult? Function()? removedFromCart,
@@ -898,6 +1107,7 @@ class _$_RemovingFromCart
     TResult Function()? initial,
     TResult Function()? addingToCart,
     TResult Function()? addedToCart,
+    TResult Function()? productAlreadyInCart,
     TResult Function()? addToCartFailed,
     TResult Function()? removingFromCart,
     TResult Function()? removedFromCart,
@@ -921,6 +1131,7 @@ class _$_RemovingFromCart
     required TResult Function(_Initial value) initial,
     required TResult Function(_AddingToCart value) addingToCart,
     required TResult Function(_AddedToCart value) addedToCart,
+    required TResult Function(_ProductAlreadyInCart value) productAlreadyInCart,
     required TResult Function(_AddToCartFailed value) addToCartFailed,
     required TResult Function(_RemovingFromCart value) removingFromCart,
     required TResult Function(_RemovedFromCart value) removedFromCart,
@@ -940,6 +1151,7 @@ class _$_RemovingFromCart
     TResult? Function(_Initial value)? initial,
     TResult? Function(_AddingToCart value)? addingToCart,
     TResult? Function(_AddedToCart value)? addedToCart,
+    TResult? Function(_ProductAlreadyInCart value)? productAlreadyInCart,
     TResult? Function(_AddToCartFailed value)? addToCartFailed,
     TResult? Function(_RemovingFromCart value)? removingFromCart,
     TResult? Function(_RemovedFromCart value)? removedFromCart,
@@ -959,6 +1171,7 @@ class _$_RemovingFromCart
     TResult Function(_Initial value)? initial,
     TResult Function(_AddingToCart value)? addingToCart,
     TResult Function(_AddedToCart value)? addedToCart,
+    TResult Function(_ProductAlreadyInCart value)? productAlreadyInCart,
     TResult Function(_AddToCartFailed value)? addToCartFailed,
     TResult Function(_RemovingFromCart value)? removingFromCart,
     TResult Function(_RemovedFromCart value)? removedFromCart,
@@ -1031,6 +1244,7 @@ class _$_RemovedFromCart
     required TResult Function() initial,
     required TResult Function() addingToCart,
     required TResult Function() addedToCart,
+    required TResult Function() productAlreadyInCart,
     required TResult Function() addToCartFailed,
     required TResult Function() removingFromCart,
     required TResult Function() removedFromCart,
@@ -1050,6 +1264,7 @@ class _$_RemovedFromCart
     TResult? Function()? initial,
     TResult? Function()? addingToCart,
     TResult? Function()? addedToCart,
+    TResult? Function()? productAlreadyInCart,
     TResult? Function()? addToCartFailed,
     TResult? Function()? removingFromCart,
     TResult? Function()? removedFromCart,
@@ -1069,6 +1284,7 @@ class _$_RemovedFromCart
     TResult Function()? initial,
     TResult Function()? addingToCart,
     TResult Function()? addedToCart,
+    TResult Function()? productAlreadyInCart,
     TResult Function()? addToCartFailed,
     TResult Function()? removingFromCart,
     TResult Function()? removedFromCart,
@@ -1092,6 +1308,7 @@ class _$_RemovedFromCart
     required TResult Function(_Initial value) initial,
     required TResult Function(_AddingToCart value) addingToCart,
     required TResult Function(_AddedToCart value) addedToCart,
+    required TResult Function(_ProductAlreadyInCart value) productAlreadyInCart,
     required TResult Function(_AddToCartFailed value) addToCartFailed,
     required TResult Function(_RemovingFromCart value) removingFromCart,
     required TResult Function(_RemovedFromCart value) removedFromCart,
@@ -1111,6 +1328,7 @@ class _$_RemovedFromCart
     TResult? Function(_Initial value)? initial,
     TResult? Function(_AddingToCart value)? addingToCart,
     TResult? Function(_AddedToCart value)? addedToCart,
+    TResult? Function(_ProductAlreadyInCart value)? productAlreadyInCart,
     TResult? Function(_AddToCartFailed value)? addToCartFailed,
     TResult? Function(_RemovingFromCart value)? removingFromCart,
     TResult? Function(_RemovedFromCart value)? removedFromCart,
@@ -1130,6 +1348,7 @@ class _$_RemovedFromCart
     TResult Function(_Initial value)? initial,
     TResult Function(_AddingToCart value)? addingToCart,
     TResult Function(_AddedToCart value)? addedToCart,
+    TResult Function(_ProductAlreadyInCart value)? productAlreadyInCart,
     TResult Function(_AddToCartFailed value)? addToCartFailed,
     TResult Function(_RemovingFromCart value)? removingFromCart,
     TResult Function(_RemovedFromCart value)? removedFromCart,
@@ -1202,6 +1421,7 @@ class _$_RemoveFromCartFailed
     required TResult Function() initial,
     required TResult Function() addingToCart,
     required TResult Function() addedToCart,
+    required TResult Function() productAlreadyInCart,
     required TResult Function() addToCartFailed,
     required TResult Function() removingFromCart,
     required TResult Function() removedFromCart,
@@ -1221,6 +1441,7 @@ class _$_RemoveFromCartFailed
     TResult? Function()? initial,
     TResult? Function()? addingToCart,
     TResult? Function()? addedToCart,
+    TResult? Function()? productAlreadyInCart,
     TResult? Function()? addToCartFailed,
     TResult? Function()? removingFromCart,
     TResult? Function()? removedFromCart,
@@ -1240,6 +1461,7 @@ class _$_RemoveFromCartFailed
     TResult Function()? initial,
     TResult Function()? addingToCart,
     TResult Function()? addedToCart,
+    TResult Function()? productAlreadyInCart,
     TResult Function()? addToCartFailed,
     TResult Function()? removingFromCart,
     TResult Function()? removedFromCart,
@@ -1263,6 +1485,7 @@ class _$_RemoveFromCartFailed
     required TResult Function(_Initial value) initial,
     required TResult Function(_AddingToCart value) addingToCart,
     required TResult Function(_AddedToCart value) addedToCart,
+    required TResult Function(_ProductAlreadyInCart value) productAlreadyInCart,
     required TResult Function(_AddToCartFailed value) addToCartFailed,
     required TResult Function(_RemovingFromCart value) removingFromCart,
     required TResult Function(_RemovedFromCart value) removedFromCart,
@@ -1282,6 +1505,7 @@ class _$_RemoveFromCartFailed
     TResult? Function(_Initial value)? initial,
     TResult? Function(_AddingToCart value)? addingToCart,
     TResult? Function(_AddedToCart value)? addedToCart,
+    TResult? Function(_ProductAlreadyInCart value)? productAlreadyInCart,
     TResult? Function(_AddToCartFailed value)? addToCartFailed,
     TResult? Function(_RemovingFromCart value)? removingFromCart,
     TResult? Function(_RemovedFromCart value)? removedFromCart,
@@ -1301,6 +1525,7 @@ class _$_RemoveFromCartFailed
     TResult Function(_Initial value)? initial,
     TResult Function(_AddingToCart value)? addingToCart,
     TResult Function(_AddedToCart value)? addedToCart,
+    TResult Function(_ProductAlreadyInCart value)? productAlreadyInCart,
     TResult Function(_AddToCartFailed value)? addToCartFailed,
     TResult Function(_RemovingFromCart value)? removingFromCart,
     TResult Function(_RemovedFromCart value)? removedFromCart,
@@ -1373,6 +1598,7 @@ class _$_UpdatingQuantity
     required TResult Function() initial,
     required TResult Function() addingToCart,
     required TResult Function() addedToCart,
+    required TResult Function() productAlreadyInCart,
     required TResult Function() addToCartFailed,
     required TResult Function() removingFromCart,
     required TResult Function() removedFromCart,
@@ -1392,6 +1618,7 @@ class _$_UpdatingQuantity
     TResult? Function()? initial,
     TResult? Function()? addingToCart,
     TResult? Function()? addedToCart,
+    TResult? Function()? productAlreadyInCart,
     TResult? Function()? addToCartFailed,
     TResult? Function()? removingFromCart,
     TResult? Function()? removedFromCart,
@@ -1411,6 +1638,7 @@ class _$_UpdatingQuantity
     TResult Function()? initial,
     TResult Function()? addingToCart,
     TResult Function()? addedToCart,
+    TResult Function()? productAlreadyInCart,
     TResult Function()? addToCartFailed,
     TResult Function()? removingFromCart,
     TResult Function()? removedFromCart,
@@ -1434,6 +1662,7 @@ class _$_UpdatingQuantity
     required TResult Function(_Initial value) initial,
     required TResult Function(_AddingToCart value) addingToCart,
     required TResult Function(_AddedToCart value) addedToCart,
+    required TResult Function(_ProductAlreadyInCart value) productAlreadyInCart,
     required TResult Function(_AddToCartFailed value) addToCartFailed,
     required TResult Function(_RemovingFromCart value) removingFromCart,
     required TResult Function(_RemovedFromCart value) removedFromCart,
@@ -1453,6 +1682,7 @@ class _$_UpdatingQuantity
     TResult? Function(_Initial value)? initial,
     TResult? Function(_AddingToCart value)? addingToCart,
     TResult? Function(_AddedToCart value)? addedToCart,
+    TResult? Function(_ProductAlreadyInCart value)? productAlreadyInCart,
     TResult? Function(_AddToCartFailed value)? addToCartFailed,
     TResult? Function(_RemovingFromCart value)? removingFromCart,
     TResult? Function(_RemovedFromCart value)? removedFromCart,
@@ -1472,6 +1702,7 @@ class _$_UpdatingQuantity
     TResult Function(_Initial value)? initial,
     TResult Function(_AddingToCart value)? addingToCart,
     TResult Function(_AddedToCart value)? addedToCart,
+    TResult Function(_ProductAlreadyInCart value)? productAlreadyInCart,
     TResult Function(_AddToCartFailed value)? addToCartFailed,
     TResult Function(_RemovingFromCart value)? removingFromCart,
     TResult Function(_RemovedFromCart value)? removedFromCart,
@@ -1544,6 +1775,7 @@ class _$_UpdatedQuantity
     required TResult Function() initial,
     required TResult Function() addingToCart,
     required TResult Function() addedToCart,
+    required TResult Function() productAlreadyInCart,
     required TResult Function() addToCartFailed,
     required TResult Function() removingFromCart,
     required TResult Function() removedFromCart,
@@ -1563,6 +1795,7 @@ class _$_UpdatedQuantity
     TResult? Function()? initial,
     TResult? Function()? addingToCart,
     TResult? Function()? addedToCart,
+    TResult? Function()? productAlreadyInCart,
     TResult? Function()? addToCartFailed,
     TResult? Function()? removingFromCart,
     TResult? Function()? removedFromCart,
@@ -1582,6 +1815,7 @@ class _$_UpdatedQuantity
     TResult Function()? initial,
     TResult Function()? addingToCart,
     TResult Function()? addedToCart,
+    TResult Function()? productAlreadyInCart,
     TResult Function()? addToCartFailed,
     TResult Function()? removingFromCart,
     TResult Function()? removedFromCart,
@@ -1605,6 +1839,7 @@ class _$_UpdatedQuantity
     required TResult Function(_Initial value) initial,
     required TResult Function(_AddingToCart value) addingToCart,
     required TResult Function(_AddedToCart value) addedToCart,
+    required TResult Function(_ProductAlreadyInCart value) productAlreadyInCart,
     required TResult Function(_AddToCartFailed value) addToCartFailed,
     required TResult Function(_RemovingFromCart value) removingFromCart,
     required TResult Function(_RemovedFromCart value) removedFromCart,
@@ -1624,6 +1859,7 @@ class _$_UpdatedQuantity
     TResult? Function(_Initial value)? initial,
     TResult? Function(_AddingToCart value)? addingToCart,
     TResult? Function(_AddedToCart value)? addedToCart,
+    TResult? Function(_ProductAlreadyInCart value)? productAlreadyInCart,
     TResult? Function(_AddToCartFailed value)? addToCartFailed,
     TResult? Function(_RemovingFromCart value)? removingFromCart,
     TResult? Function(_RemovedFromCart value)? removedFromCart,
@@ -1643,6 +1879,7 @@ class _$_UpdatedQuantity
     TResult Function(_Initial value)? initial,
     TResult Function(_AddingToCart value)? addingToCart,
     TResult Function(_AddedToCart value)? addedToCart,
+    TResult Function(_ProductAlreadyInCart value)? productAlreadyInCart,
     TResult Function(_AddToCartFailed value)? addToCartFailed,
     TResult Function(_RemovingFromCart value)? removingFromCart,
     TResult Function(_RemovedFromCart value)? removedFromCart,
@@ -1715,6 +1952,7 @@ class _$_UpdateQuantityFailed
     required TResult Function() initial,
     required TResult Function() addingToCart,
     required TResult Function() addedToCart,
+    required TResult Function() productAlreadyInCart,
     required TResult Function() addToCartFailed,
     required TResult Function() removingFromCart,
     required TResult Function() removedFromCart,
@@ -1734,6 +1972,7 @@ class _$_UpdateQuantityFailed
     TResult? Function()? initial,
     TResult? Function()? addingToCart,
     TResult? Function()? addedToCart,
+    TResult? Function()? productAlreadyInCart,
     TResult? Function()? addToCartFailed,
     TResult? Function()? removingFromCart,
     TResult? Function()? removedFromCart,
@@ -1753,6 +1992,7 @@ class _$_UpdateQuantityFailed
     TResult Function()? initial,
     TResult Function()? addingToCart,
     TResult Function()? addedToCart,
+    TResult Function()? productAlreadyInCart,
     TResult Function()? addToCartFailed,
     TResult Function()? removingFromCart,
     TResult Function()? removedFromCart,
@@ -1776,6 +2016,7 @@ class _$_UpdateQuantityFailed
     required TResult Function(_Initial value) initial,
     required TResult Function(_AddingToCart value) addingToCart,
     required TResult Function(_AddedToCart value) addedToCart,
+    required TResult Function(_ProductAlreadyInCart value) productAlreadyInCart,
     required TResult Function(_AddToCartFailed value) addToCartFailed,
     required TResult Function(_RemovingFromCart value) removingFromCart,
     required TResult Function(_RemovedFromCart value) removedFromCart,
@@ -1795,6 +2036,7 @@ class _$_UpdateQuantityFailed
     TResult? Function(_Initial value)? initial,
     TResult? Function(_AddingToCart value)? addingToCart,
     TResult? Function(_AddedToCart value)? addedToCart,
+    TResult? Function(_ProductAlreadyInCart value)? productAlreadyInCart,
     TResult? Function(_AddToCartFailed value)? addToCartFailed,
     TResult? Function(_RemovingFromCart value)? removingFromCart,
     TResult? Function(_RemovedFromCart value)? removedFromCart,
@@ -1814,6 +2056,7 @@ class _$_UpdateQuantityFailed
     TResult Function(_Initial value)? initial,
     TResult Function(_AddingToCart value)? addingToCart,
     TResult Function(_AddedToCart value)? addedToCart,
+    TResult Function(_ProductAlreadyInCart value)? productAlreadyInCart,
     TResult Function(_AddToCartFailed value)? addToCartFailed,
     TResult Function(_RemovingFromCart value)? removingFromCart,
     TResult Function(_RemovedFromCart value)? removedFromCart,
@@ -1911,6 +2154,7 @@ class _$_CartCount with DiagnosticableTreeMixin implements _CartCount {
     required TResult Function() initial,
     required TResult Function() addingToCart,
     required TResult Function() addedToCart,
+    required TResult Function() productAlreadyInCart,
     required TResult Function() addToCartFailed,
     required TResult Function() removingFromCart,
     required TResult Function() removedFromCart,
@@ -1930,6 +2174,7 @@ class _$_CartCount with DiagnosticableTreeMixin implements _CartCount {
     TResult? Function()? initial,
     TResult? Function()? addingToCart,
     TResult? Function()? addedToCart,
+    TResult? Function()? productAlreadyInCart,
     TResult? Function()? addToCartFailed,
     TResult? Function()? removingFromCart,
     TResult? Function()? removedFromCart,
@@ -1949,6 +2194,7 @@ class _$_CartCount with DiagnosticableTreeMixin implements _CartCount {
     TResult Function()? initial,
     TResult Function()? addingToCart,
     TResult Function()? addedToCart,
+    TResult Function()? productAlreadyInCart,
     TResult Function()? addToCartFailed,
     TResult Function()? removingFromCart,
     TResult Function()? removedFromCart,
@@ -1972,6 +2218,7 @@ class _$_CartCount with DiagnosticableTreeMixin implements _CartCount {
     required TResult Function(_Initial value) initial,
     required TResult Function(_AddingToCart value) addingToCart,
     required TResult Function(_AddedToCart value) addedToCart,
+    required TResult Function(_ProductAlreadyInCart value) productAlreadyInCart,
     required TResult Function(_AddToCartFailed value) addToCartFailed,
     required TResult Function(_RemovingFromCart value) removingFromCart,
     required TResult Function(_RemovedFromCart value) removedFromCart,
@@ -1991,6 +2238,7 @@ class _$_CartCount with DiagnosticableTreeMixin implements _CartCount {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_AddingToCart value)? addingToCart,
     TResult? Function(_AddedToCart value)? addedToCart,
+    TResult? Function(_ProductAlreadyInCart value)? productAlreadyInCart,
     TResult? Function(_AddToCartFailed value)? addToCartFailed,
     TResult? Function(_RemovingFromCart value)? removingFromCart,
     TResult? Function(_RemovedFromCart value)? removedFromCart,
@@ -2010,6 +2258,7 @@ class _$_CartCount with DiagnosticableTreeMixin implements _CartCount {
     TResult Function(_Initial value)? initial,
     TResult Function(_AddingToCart value)? addingToCart,
     TResult Function(_AddedToCart value)? addedToCart,
+    TResult Function(_ProductAlreadyInCart value)? productAlreadyInCart,
     TResult Function(_AddToCartFailed value)? addToCartFailed,
     TResult Function(_RemovingFromCart value)? removingFromCart,
     TResult Function(_RemovedFromCart value)? removedFromCart,
@@ -2110,6 +2359,7 @@ class _$_Error with DiagnosticableTreeMixin implements _Error {
     required TResult Function() initial,
     required TResult Function() addingToCart,
     required TResult Function() addedToCart,
+    required TResult Function() productAlreadyInCart,
     required TResult Function() addToCartFailed,
     required TResult Function() removingFromCart,
     required TResult Function() removedFromCart,
@@ -2129,6 +2379,7 @@ class _$_Error with DiagnosticableTreeMixin implements _Error {
     TResult? Function()? initial,
     TResult? Function()? addingToCart,
     TResult? Function()? addedToCart,
+    TResult? Function()? productAlreadyInCart,
     TResult? Function()? addToCartFailed,
     TResult? Function()? removingFromCart,
     TResult? Function()? removedFromCart,
@@ -2148,6 +2399,7 @@ class _$_Error with DiagnosticableTreeMixin implements _Error {
     TResult Function()? initial,
     TResult Function()? addingToCart,
     TResult Function()? addedToCart,
+    TResult Function()? productAlreadyInCart,
     TResult Function()? addToCartFailed,
     TResult Function()? removingFromCart,
     TResult Function()? removedFromCart,
@@ -2171,6 +2423,7 @@ class _$_Error with DiagnosticableTreeMixin implements _Error {
     required TResult Function(_Initial value) initial,
     required TResult Function(_AddingToCart value) addingToCart,
     required TResult Function(_AddedToCart value) addedToCart,
+    required TResult Function(_ProductAlreadyInCart value) productAlreadyInCart,
     required TResult Function(_AddToCartFailed value) addToCartFailed,
     required TResult Function(_RemovingFromCart value) removingFromCart,
     required TResult Function(_RemovedFromCart value) removedFromCart,
@@ -2190,6 +2443,7 @@ class _$_Error with DiagnosticableTreeMixin implements _Error {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_AddingToCart value)? addingToCart,
     TResult? Function(_AddedToCart value)? addedToCart,
+    TResult? Function(_ProductAlreadyInCart value)? productAlreadyInCart,
     TResult? Function(_AddToCartFailed value)? addToCartFailed,
     TResult? Function(_RemovingFromCart value)? removingFromCart,
     TResult? Function(_RemovedFromCart value)? removedFromCart,
@@ -2209,6 +2463,7 @@ class _$_Error with DiagnosticableTreeMixin implements _Error {
     TResult Function(_Initial value)? initial,
     TResult Function(_AddingToCart value)? addingToCart,
     TResult Function(_AddedToCart value)? addedToCart,
+    TResult Function(_ProductAlreadyInCart value)? productAlreadyInCart,
     TResult Function(_AddToCartFailed value)? addToCartFailed,
     TResult Function(_RemovingFromCart value)? removingFromCart,
     TResult Function(_RemovedFromCart value)? removedFromCart,

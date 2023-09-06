@@ -9,6 +9,8 @@ class ProductActionsState with _$ProductActionsState {
   const factory ProductActionsState.initial() = _Initial;
   const factory ProductActionsState.addingToCart() = _AddingToCart;
   const factory ProductActionsState.addedToCart() = _AddedToCart;
+  const factory ProductActionsState.productAlreadyInCart() =
+      _ProductAlreadyInCart;
   const factory ProductActionsState.addToCartFailed() = _AddToCartFailed;
   const factory ProductActionsState.removingFromCart() = _RemovingFromCart;
   const factory ProductActionsState.removedFromCart() = _RemovedFromCart;

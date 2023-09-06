@@ -89,7 +89,8 @@ class CategoryProductsScreen extends ConsumerWidget {
                                 context.pop();
                                 context.pop({
                                   'modelUrl': data[index].productModelUrl,
-                                  'productId': data[index].productId
+                                  'productId': data[index].productId,
+                                  'productImage': data[index].productImage,
                                 });
                               },
                               child: Column(
