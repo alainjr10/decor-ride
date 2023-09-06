@@ -47,6 +47,7 @@ dependencies:
   flutter_hooks: ^0.20.0
   hooks_riverpod: ^2.3.8
   dartz: ^0.10.1
+  badges: ^3.1.2
 
 
 dev_dependencies:

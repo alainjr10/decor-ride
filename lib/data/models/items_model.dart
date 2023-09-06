@@ -26,6 +26,7 @@ class ProductCategoryModel {
 }
 
 class ProductModel {
+  final String productId;
   final String productName;
   final String productImage;
   final String? productModelUrl;
@@ -39,6 +40,7 @@ class ProductModel {
   final String productCategoryTag;
 
   ProductModel({
+    required this.productId,
     required this.productName,
     required this.productImage,
     required this.productModelUrl,
@@ -54,6 +56,7 @@ class ProductModel {
 
   // copywith
   ProductModel copyWith({
+    String? productId,
     String? productName,
     String? productImage,
     String? productModelUrl,
@@ -67,6 +70,7 @@ class ProductModel {
     bool? bestSeller,
   }) {
     return ProductModel(
+      productId: productId ?? this.productId,
       productName: productName ?? this.productName,
       productImage: productImage ?? this.productImage,
       productModelUrl: productModelUrl ?? this.productModelUrl,
@@ -84,6 +88,7 @@ class ProductModel {
   // from json method
   factory ProductModel.fromJson(Map<String, dynamic> json) {
     return ProductModel(
+      productId: json['product_id'],
       productName: json['product_name'],
       productImage: json['product_image_url'],
       productModelUrl: json['product_model_url'],

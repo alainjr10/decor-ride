@@ -1,4 +1,5 @@
 import 'package:decor_ride/app/theme_extension.dart';
+import 'package:decor_ride/select_bus_seat.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -26,10 +27,42 @@ class HomeScreen extends ConsumerWidget {
                 .copyWith(fontWeight: FontWeight.w600),
             textAlign: TextAlign.center,
           ),
+          Container(
+            width: 50.0,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Colors.blue,
+                  Colors.orange,
+                ],
+              ),
+              shape: BoxShape.circle,
+            ),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                padding: EdgeInsets.all(0.0),
+                backgroundColor: Colors.transparent,
+                shadowColor: Colors.transparent,
+              ),
+              onPressed: () {
+                context.push('/ar_main_view');
+              },
+              child: Icon(
+                Icons.arrow_forward_ios,
+                color: Colors.white,
+                size: 20.0,
+              ),
+            )
+          ),
           16.vGap,
           TextButton(
             onPressed: () {
-              context.push('/ar_main_view');
+              // context.push('/ar_main_view');
+              Navigator.push(context, MaterialPageRoute(
+                builder: (_) {
+                  return SelectSeatScreen();
+                },
+              ));
             },
             child: const Text("Demo AR View"),
           ),

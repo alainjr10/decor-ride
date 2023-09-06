@@ -87,7 +87,10 @@ class CategoryProductsScreen extends ConsumerWidget {
                           ? InkWell(
                               onTap: () {
                                 context.pop();
-                                context.pop(data[index].productModelUrl);
+                                context.pop({
+                                  'modelUrl': data[index].productModelUrl,
+                                  'productId': data[index].productId
+                                });
                               },
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,

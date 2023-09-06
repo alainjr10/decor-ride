@@ -69,6 +69,8 @@ final router = GoRouter(
             User? firebaseUser = FirebaseAuth.instance.currentUser;
             if (firebaseUser != null) {
               "Redirecting now......".log();
+              debugPrint("Debug print Redirecting now......");
+              print("Print Redirecting now......");
               return null;
             }
             if (firebaseUser == null) {
