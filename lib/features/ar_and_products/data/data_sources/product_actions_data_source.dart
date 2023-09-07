@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:decor_ride/app/theme_extension.dart';
+import 'package:decor_ride/data/models/items_model.dart';
+import 'package:decor_ride/features/ar_and_products/domain/entities/cart_item_entity.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -100,6 +102,41 @@ class ProductActionsDataSource {
       return left(cartItems.docs.length);
     } on FirebaseException catch (e, stackTrace) {
       "Error getting cart count: ${e.message}, stacktrace ${stackTrace.toString()}"
+          .log();
+      return right(e.message.toString());
+    }
+  }
+
+  Future<Either<List<CartItemEntity>, String>> getCartItems() async {
+    final user = _auth.currentUser;
+    final userId = user!.uid;
+    final cartRef = _firestore
+        .collection('user_carts')
+        .doc(userId)
+        .collection('cart_items');
+    try {
+      'getting cart items...'.log();
+      final cartProducts = <CartItemEntity>[];
+      final cartItems = await cartRef.get();
+      final cartItemsList = cartItems.docs;
+      for (var item in cartItemsList) {
+        'product id is ${item.data()['productId']} '.log();
+        final productSnapshot = await _firestore
+            .collection('products')
+            .doc(item.data()['productId'].toString().trim())
+            .get();
+        'product exists: ${productSnapshot.exists} \n'.log();
+        final cartItemEntity = CartItemEntity(
+          product: ProductModel.fromJson(productSnapshot.data()!),
+          quantity: int.parse(item.data()['quantity'].toString().trim()),
+        );
+        cartProducts.add(cartItemEntity);
+      }
+      // cartItems.docs.map((e) => ProductModel.fromJson(e.data())).toList();
+      'successfully got cart items'.log();
+      return left(cartProducts);
+    } on FirebaseException catch (e, stackTrace) {
+      "Error getting cart items: ${e.message}, stacktrace ${stackTrace.toString()}"
           .log();
       return right(e.message.toString());
     }

@@ -67,7 +67,7 @@ class CustomElevatedButton extends ConsumerWidget {
                 size: 24,
                 color: foregroundColor ??
                     textColor ??
-                    context.colorScheme.onPrimary,
+                    context.colorScheme.onSecondaryContainer,
               ),
             )
           else
@@ -76,15 +76,12 @@ class CustomElevatedButton extends ConsumerWidget {
               style: TextStyle(
                 color: foregroundColor ??
                     textColor ??
-                    context.colorScheme.onPrimary,
+                    context.colorScheme.onSecondaryContainer,
               ),
             ),
           if (trailingIcon != null) 8.hGap,
           trailingIcon == null
-              ? Icon(
-                  Icons.circle_outlined,
-                  color: backgroundColor,
-                )
+              ? const SizedBox.shrink()
               : Icon(
                   trailingIcon,
                   color: foregroundColor,

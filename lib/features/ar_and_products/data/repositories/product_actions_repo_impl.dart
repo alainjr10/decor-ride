@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:decor_ride/features/ar_and_products/data/data_sources/product_actions_data_source.dart';
 import 'package:decor_ride/features/ar_and_products/data/repositories/product_actions_repo.dart';
+import 'package:decor_ride/features/ar_and_products/domain/entities/cart_item_entity.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final productActionsRepoProvider = Provider<ProductActionsRepo>((ref) {
@@ -32,5 +33,10 @@ class ProductActionsRepoImpl implements ProductActionsRepo {
   @override
   Future<Either<int, String>> getCartCount() {
     return _productActionsDataSource.getCartCount();
+  }
+
+  @override
+  Future<Either<List<CartItemEntity>, String>> getCartItems() {
+    return _productActionsDataSource.getCartItems();
   }
 }

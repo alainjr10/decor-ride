@@ -1,5 +1,7 @@
+import 'package:dartz/dartz.dart';
 import 'package:decor_ride/features/ar_and_products/data/repositories/product_actions_repo.dart';
 import 'package:decor_ride/features/ar_and_products/data/repositories/product_actions_repo_impl.dart';
+import 'package:decor_ride/features/ar_and_products/domain/entities/cart_item_entity.dart';
 import 'package:decor_ride/features/ar_and_products/presentation/providers/product_actions_state.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -16,6 +18,13 @@ final getCartCountProvider = FutureProvider<int>((ref) async {
     (success) => success,
     (failure) => 0,
   );
+});
+
+final getCartItemsProvider =
+    FutureProvider<Either<List<CartItemEntity>, String>>((ref) async {
+  final productActionsRepo = ref.watch(productActionsRepoProvider);
+  final result = await productActionsRepo.getCartItems();
+  return result;
 });
 
 class ProductActionsNotifier extends StateNotifier<ProductActionsState> {
