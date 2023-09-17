@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
-import 'package:decor_ride/app/theme_extension.dart';
+import 'package:decor_ride/app/extensions/theme_extension.dart';
 import 'package:decor_ride/features/ideabook/data/data_sources/ideabook_firestore.dart';
 import 'package:decor_ride/features/ideabook/domain/entities/create_ideabook_entity.dart';
 import 'package:decor_ride/features/ideabook/domain/entities/get_ideabook_entity.dart';

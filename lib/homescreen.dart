@@ -1,4 +1,4 @@
-import 'package:decor_ride/app/theme_extension.dart';
+import 'package:decor_ride/app/extensions/theme_extension.dart';
 import 'package:decor_ride/select_bus_seat.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

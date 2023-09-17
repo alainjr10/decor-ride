@@ -1,5 +1,5 @@
 import 'package:decor_ride/app/providers/global_providers.dart';
-import 'package:decor_ride/app/theme_extension.dart';
+import 'package:decor_ride/app/extensions/theme_extension.dart';
 import 'package:decor_ride/common/widgets/custom_elevated_button.dart';
 import 'package:decor_ride/features/auth/domain/entities/signin_user_entity.dart';
 import 'package:decor_ride/features/auth/presentation/providers/auth_provider.dart';

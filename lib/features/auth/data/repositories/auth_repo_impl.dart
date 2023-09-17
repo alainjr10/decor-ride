@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:decor_ride/app/theme_extension.dart';
+import 'package:decor_ride/app/extensions/theme_extension.dart';
 import 'package:decor_ride/features/auth/data/data_sources/firebase_auth_api.dart';
 import 'package:decor_ride/features/auth/data/data_sources/firebase_auth_api_impl.dart';
 import 'package:decor_ride/features/auth/data/models/user_model.dart';

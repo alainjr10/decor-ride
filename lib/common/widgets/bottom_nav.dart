@@ -1,6 +1,6 @@
 // ignore_for_file: must_be_immutable
 
-import 'package:decor_ride/app/theme_extension.dart';
+import 'package:decor_ride/app/extensions/theme_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

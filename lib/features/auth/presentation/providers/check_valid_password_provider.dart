@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:decor_ride/app/providers/global_providers.dart';
-import 'package:decor_ride/app/theme_extension.dart';
+import 'package:decor_ride/app/extensions/theme_extension.dart';
 import 'package:decor_ride/features/auth/presentation/providers/states/auth_value_failure.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 

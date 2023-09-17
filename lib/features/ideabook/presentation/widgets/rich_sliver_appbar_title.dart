@@ -1,4 +1,4 @@
-import 'package:decor_ride/app/theme_extension.dart';
+import 'package:decor_ride/app/extensions/theme_extension.dart';
 import 'package:decor_ride/features/ideabook/domain/entities/get_ideabook_entity.dart';
 import 'package:decor_ride/utils/constants.dart';
 import 'package:flutter/material.dart';

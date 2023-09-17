@@ -1,4 +1,4 @@
-import 'package:decor_ride/app/theme_extension.dart';
+import 'package:decor_ride/app/extensions/theme_extension.dart';
 import 'package:decor_ride/common/widgets/custom_elevated_button.dart';
 import 'package:decor_ride/features/ar_and_products/presentation/providers/product_actions_provider.dart';
 import 'package:flutter/material.dart';

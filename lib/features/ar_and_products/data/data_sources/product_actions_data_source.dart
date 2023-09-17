@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
-import 'package:decor_ride/app/theme_extension.dart';
-import 'package:decor_ride/data/models/items_model.dart';
+import 'package:decor_ride/app/extensions/theme_extension.dart';
+import 'package:decor_ride/common/data/models/items_model.dart';
 import 'package:decor_ride/features/ar_and_products/domain/entities/cart_item_entity.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 

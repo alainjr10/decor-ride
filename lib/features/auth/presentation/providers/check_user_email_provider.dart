@@ -1,4 +1,4 @@
-import 'package:decor_ride/app/theme_extension.dart';
+import 'package:decor_ride/app/extensions/theme_extension.dart';
 import 'package:decor_ride/features/auth/domain/use_cases/check_user_email_usecase.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

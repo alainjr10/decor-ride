@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:decor_ride/core/auth_value_object.dart';
+import 'package:decor_ride/app/core/auth_value_object.dart';
 import 'package:decor_ride/features/auth/presentation/providers/states/auth_value_failure.dart';
 import 'package:decor_ride/features/auth/presentation/providers/states/auth_value_validators.dart';
 

@@ -1,4 +1,4 @@
-import 'package:decor_ride/data/models/items_model.dart';
+import 'package:decor_ride/common/data/models/items_model.dart';
 
 class CartItemEntity {
   final ProductModel product;

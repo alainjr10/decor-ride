@@ -1,4 +1,4 @@
-import 'package:decor_ride/app/theme_extension.dart';
+import 'package:decor_ride/app/extensions/theme_extension.dart';
 import 'package:decor_ride/features/ideabook/domain/entities/get_ideabook_entity.dart';
 import 'package:decor_ride/features/ideabook/presentation/widgets/more_ideas_tab.dart';
 import 'package:decor_ride/features/ideabook/presentation/widgets/my_ideas_tab.dart';

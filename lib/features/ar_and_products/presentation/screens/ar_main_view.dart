@@ -11,7 +11,7 @@ import 'package:ar_flutter_plugin/managers/ar_session_manager.dart';
 import 'package:ar_flutter_plugin/models/ar_anchor.dart';
 import 'package:ar_flutter_plugin/models/ar_hittest_result.dart';
 import 'package:ar_flutter_plugin/models/ar_node.dart';
-import 'package:decor_ride/app/theme_extension.dart';
+import 'package:decor_ride/app/extensions/theme_extension.dart';
 import 'package:decor_ride/common/widgets/custom_elevated_button.dart';
 import 'package:decor_ride/features/ar_and_products/presentation/providers/product_actions_provider.dart';
 import 'package:decor_ride/features/ar_and_products/presentation/providers/product_actions_state.dart';

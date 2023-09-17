@@ -1,4 +1,4 @@
-import 'package:decor_ride/app/theme_extension.dart';
+import 'package:decor_ride/app/extensions/theme_extension.dart';
 import 'package:decor_ride/common/widgets/outlined_button.dart';
 import 'package:decor_ride/features/ideabook/presentation/providers/get_ideabooks_provider.dart';
 import 'package:decor_ride/utils/constants.dart';

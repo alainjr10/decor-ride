@@ -1,6 +1,6 @@
-import 'package:decor_ride/data/models/items_model.dart';
-import 'package:decor_ride/data/repositories/get_categories_repo.dart';
-import 'package:decor_ride/data/repositories/get_products_repo.dart';
+import 'package:decor_ride/common/data/models/items_model.dart';
+import 'package:decor_ride/common/data/repositories/get_categories_repo.dart';
+import 'package:decor_ride/common/data/repositories/get_products_repo.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final getCatsProvider =

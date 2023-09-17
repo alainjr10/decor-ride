@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:decor_ride/app/theme_extension.dart';
+import 'package:decor_ride/app/extensions/theme_extension.dart';
 import 'package:decor_ride/features/auth/domain/entities/create_user_entity.dart';
 import 'package:decor_ride/features/auth/domain/entities/signin_user_entity.dart';
 import 'package:decor_ride/features/auth/domain/use_cases/auth_value_objects.dart';

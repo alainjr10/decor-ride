@@ -1,4 +1,4 @@
-import 'package:decor_ride/app/theme_extension.dart';
+import 'package:decor_ride/app/extensions/theme_extension.dart';
 import 'package:decor_ride/common/widgets/bottom_nav.dart';
 import 'package:decor_ride/features/ar_and_products/presentation/screens/ar_main_view.dart';
 import 'package:decor_ride/features/ar_and_products/presentation/screens/category_products_screen.dart';
