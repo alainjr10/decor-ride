@@ -1,5 +1,6 @@
 import 'package:decor_ride/app/extensions/theme_extension.dart';
 import 'package:decor_ride/common/widgets/bottom_nav.dart';
+import 'package:decor_ride/features/ar_and_products/domain/entities/cart_item_entity.dart';
 import 'package:decor_ride/features/ar_and_products/presentation/screens/ar_main_view.dart';
 import 'package:decor_ride/features/ar_and_products/presentation/screens/category_products_screen.dart';
 import 'package:decor_ride/features/ar_and_products/presentation/screens/checkout_screen.dart';
@@ -144,11 +145,19 @@ final router = GoRouter(
       builder: (context, state) => const ShoppingCartScreen(),
     ),
     GoRoute(
-      parentNavigatorKey: _rootNavigatorKey,
-      path: '/checkout_screen',
-      name: 'checkoutScreen',
-      builder: (context, state) => const CheckoutScreen(),
-    ),
+        parentNavigatorKey: _rootNavigatorKey,
+        path: '/checkout_screen',
+        name: 'checkoutScreen',
+        builder: (context, state) {
+          Map<String, dynamic> arguments = state.extra as Map<String, dynamic>;
+          double totalAmount = arguments['totalAmount'] as double;
+          List<CartItemEntity> cartItems =
+              arguments['cartItems'] as List<CartItemEntity>;
+          return CheckoutScreen(
+            totalAmount: totalAmount,
+            cartItems: cartItems,
+          );
+        }),
     GoRoute(
       parentNavigatorKey: _rootNavigatorKey,
       path: '/welcome',

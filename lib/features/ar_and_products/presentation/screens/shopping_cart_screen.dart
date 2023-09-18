@@ -12,6 +12,8 @@ class ShoppingCartScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final List<int> qtyList = List.generate(30, (index) => index + 1);
+    double totalPrice = 0;
+    double totalItems = 0;
     'qty list is ${qtyList.toString()}'.log();
     ref.listen(
       productActionsNotifierProvider,
@@ -63,12 +65,12 @@ class ShoppingCartScreen extends ConsumerWidget {
                     data: (data) {
                       return data.fold(
                         (cartItemsl) {
-                          double totalPrice = cartItemsl.fold(
+                          totalPrice = cartItemsl.fold(
                               0,
                               (previousValue, element) =>
                                   previousValue +
                                   element.product.price * element.quantity);
-                          double totalItems = cartItemsl.fold(
+                          totalItems = cartItemsl.fold(
                               0,
                               (previousValue, element) =>
                                   previousValue + element.quantity);
@@ -383,24 +385,35 @@ class ShoppingCartScreen extends ConsumerWidget {
               ),
             ),
           ),
-          Container(
-            height: 80.0,
-            padding: const EdgeInsets.symmetric(
-              horizontal: 16.0,
-              vertical: 16.0,
-            ),
-            decoration: BoxDecoration(
-              color: context.colorScheme.surface,
-            ),
-            child: CustomElevatedButton(
-              height: 40.0,
-              leadingIcon: null,
-              text: 'PROCEED TO CHECKOUT',
-              onPressed: () {
-                context.push('/checkout_screen');
-              },
-            ),
-          ),
+          ref.watch(getCartItemsProvider).maybeWhen(
+                orElse: () => 0.vGap,
+                data: (data) {
+                  return Container(
+                    height: 80.0,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16.0,
+                      vertical: 16.0,
+                    ),
+                    decoration: BoxDecoration(
+                      color: context.colorScheme.surface,
+                    ),
+                    child: CustomElevatedButton(
+                      height: 40.0,
+                      leadingIcon: null,
+                      text: 'PROCEED TO CHECKOUT',
+                      onPressed: () {
+                        context.push('/checkout_screen', extra: {
+                          'totalAmount': totalPrice,
+                          'cartItems': data.fold(
+                            (cartItems) => cartItems,
+                            (r) => [],
+                          ),
+                        });
+                      },
+                    ),
+                  );
+                },
+              ),
         ],
       ),
     );

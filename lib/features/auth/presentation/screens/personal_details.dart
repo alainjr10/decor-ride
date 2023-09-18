@@ -1,6 +1,7 @@
 import 'package:decor_ride/app/providers/global_providers.dart';
 import 'package:decor_ride/app/extensions/theme_extension.dart';
 import 'package:decor_ride/common/widgets/custom_elevated_button.dart';
+import 'package:decor_ride/common/widgets/custom_text_fields.dart';
 import 'package:decor_ride/features/auth/domain/entities/create_user_entity.dart';
 import 'package:decor_ride/features/auth/presentation/providers/auth_provider.dart';
 import 'package:decor_ride/features/auth/presentation/providers/states/auth_states.dart';
@@ -196,45 +197,6 @@ class PersonalDetailsScreen extends HookConsumerWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-class CustomTextField extends StatelessWidget {
-  const CustomTextField({
-    super.key,
-    required this.controller,
-    this.hintText,
-    this.validator,
-  });
-
-  final TextEditingController controller;
-  final String? hintText;
-  // validator function
-  final String? Function(String?)? validator;
-
-  @override
-  Widget build(BuildContext context) {
-    return TextFormField(
-      controller: controller,
-      decoration: InputDecoration(
-        hintText: hintText,
-        labelText: hintText,
-        hintStyle: TextStyle(
-          color: context.colorScheme.onPrimary,
-        ),
-        labelStyle: TextStyle(
-          color: context.colorScheme.onPrimary,
-        ),
-        border: UnderlineInputBorder(
-          borderRadius: BorderRadius.circular(4),
-          borderSide: BorderSide(
-            color: context.colorScheme.secondaryContainer,
-          ),
-        ),
-      ),
-      autovalidateMode: AutovalidateMode.onUserInteraction,
-      validator: validator ?? (value) => null,
     );
   }
 }
