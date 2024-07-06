@@ -16,6 +16,7 @@ import 'package:decor_ride/features/ideabook/presentation/screens/ideabook_detai
 import 'package:decor_ride/features/ideabook/presentation/screens/ideabook_screen.dart';
 import 'package:decor_ride/features/notifications/presentation/screens/notifications_screen.dart';
 import 'package:decor_ride/features/profile/presentation/screens/profile_screen.dart';
+import 'package:decor_ride/features/z_ignore/screens/model_viewer.dart';
 import 'package:decor_ride/homescreen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -80,6 +81,15 @@ final router = GoRouter(
             return null;
           },
           // builder: (context, state) => HomeScreen(),
+          routes: [
+            GoRoute(
+              parentNavigatorKey: _rootNavigatorKey,
+              path: 'model_viewer_screen',
+              builder: (context, state) {
+                return const ModelViewerScreen();
+              },
+            ),
+          ],
         ),
         GoRoute(
           parentNavigatorKey: _shellNavigatorKey,
